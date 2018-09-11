@@ -63,9 +63,13 @@
         <li><a href="#">View Cars</a></li>
         <li><a href="#">About Us</a></li>
       </ul>
+      {% if user.is_authenticated %}
+      <!--Do nothing if user isn't logged in-->
+      {% else %}
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
+      {% endif %}
     </div>
   </div>
 </nav>
