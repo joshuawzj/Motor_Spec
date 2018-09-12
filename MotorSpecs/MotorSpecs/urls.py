@@ -17,10 +17,16 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 import WebApp.views
+from django.conf import settings
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LogoutView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('home/', WebApp.views.home, name='home'),
     path('login/', LoginView.as_view(template_name='WebApp/login.html'), name='login'),
+    path('logout/', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     path('dashboard/', WebApp.views.dashboard, name='dashboard'),
+    
 ]

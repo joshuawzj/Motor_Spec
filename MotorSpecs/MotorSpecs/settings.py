@@ -124,4 +124,5 @@ STATIC_URL = '/static/'
 
 #Settings for login
 LOGIN_REDIRECT_URL = '/dashboard/'
-LOGIN_URL = '/login'
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = '/home/'

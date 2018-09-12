@@ -55,21 +55,26 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+
         {% if user.is_authenticated %}
-        <li><a href="#">Stores</a></li>
+        <li class="active"><a href="#">Dashboard</a></li> <!--show dashboard link for employees only-->
+        {% else %}
+        <li class="active"><a href="/home/">Home</a></li>
         {% endif %}
+
+        <li><a href="#">Stores</a></li>
         <li><a href="#">Search</a></li>
         <li><a href="#">View Cars</a></li>
         <li><a href="#">About Us</a></li>
       </ul>
-      {% if user.is_authenticated %}
-      <!--Do nothing if user isn't logged in-->
-      {% else %}
+      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        {% else %}
+        <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        {% endif %}
       </ul>
-      {% endif %}
     </div>
   </div>
 </nav>

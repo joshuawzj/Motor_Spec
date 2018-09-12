@@ -6,4 +6,8 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def dashboard(request):
     assert isinstance(request, HttpRequest)
-    return render(request, 'loginapp/dashboard.html')
+    return render(request, 'WebApp/dashboard.html')
+
+def home(request):
+    assert isinstance(request, HttpRequest)
+    return render(request, 'WebApp/home.html')
