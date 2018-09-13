@@ -24,6 +24,7 @@ from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', WebApp.views.home, name='home'),
     path('home/', WebApp.views.home, name='home'),
     path('login/', LoginView.as_view(template_name='WebApp/login.html'), name='login'),
     path('logout/', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),

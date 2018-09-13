@@ -55,17 +55,8 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-
-        {% if user.is_authenticated %}
-        <li class="active"><a href="#">Dashboard</a></li> <!--show dashboard link for employees only-->
-        {% else %}
-        <li class="active"><a href="/home/">Home</a></li>
-        {% endif %}
-
-        <li><a href="#">Stores</a></li>
-        <li><a href="#">Search</a></li>
-        <li><a href="#">View Cars</a></li>
-        <li><a href="#">About Us</a></li>
+      	{% block navbuttons %}
+	{% endblock navbuttons %}
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -87,7 +78,7 @@
     <div class="col-sm-8 text-left"> 
       {% block content %} {% endblock %}
       <hr>
-      <h3>Motorspecs</h3>
+      <h3>MotorSpecs</h3>
     </div>
     <div class="col-sm-2 sidenav">
     <!--right-side column-->
@@ -95,8 +86,10 @@
   </div>
 </div>
 
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
+<footer class="page-footer font-small white">
+
+  <div class="footer-copyright text-center py-3">MotorSpecs 2018</div>
+
 </footer>
 
 </body>

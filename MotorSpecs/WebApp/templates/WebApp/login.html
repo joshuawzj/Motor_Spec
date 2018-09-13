@@ -1,5 +1,16 @@
 {% extends "WebApp/base.html" %}
 
+{% block navbuttons %}
+        <li><a href="/home/">Home</a></li>
+        <li><a href="#">Stores</a></li>
+        <li><a href="#">Search</a></li>
+        <li><a href="#">View Cars</a></li>
+        <li><a href="#">About Us</a></li>
+	{% if user.is_authenticated %}
+        <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
+      	{% endif %}
+{% endblock navbuttons %}
+
 {% block content %}
 {% if user.is_authenticated %}
 
