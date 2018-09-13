@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results Page</title>
+</head>
+<body>
+<h1>Search Results</h1>
+<p><i>{{ search_count }} results available.</i></p>
+<ul>
+    {% if all_results %}
+        {% if all_results == vehicleList_results %}
+            {% for vehicle in all_results %}
+                <li><b>Car ID: {{ vehicle.carID }}</b></li>
+                <li><b>Car Make Name:</b> {{ vehicle.carMakeName }}</li>
+                <li><b>Car Model:</b> {{ vehicle.carModel }}</li>
+                <li><b>Car Series:</b> {{ vehicle.carSeries }}</li>
+                <li><b>Car Fuel System:</b> {{ vehicle.carFuelSystem }}</li>
+                <li><b>Car Standard Transmission:</b> {{ vehicle.carStandardTransmission }}</li>
+                <li><b>Car Body Type:</b> {{ vehicle.carBodyType }}</li>
+                <li><b>Car Drive:</b> {{ vehicle.carDrive }}</li>
+                <br>
+            {% endfor %}
+        {% endif %}
+        {% if all_results == customerDetails_results %}
+            {% for customer in all_results %}
+                <li><b>Customer ID: {{ customer.customerID }}</b></li>
+                <li><b>Customer Name:</b> {{ customer.customerName }}</li>
+                <br>
+            {% endfor %}
+        {% endif %}
+        {% if all_results ==  None %}
+            <li><i>Please enter a keyword in the search and try again.</i></li>
+        {% endif %}
+    {% else %}
+        <li>Sorry. There are no available results.</li>
+    {% endif %}
+
+</ul>
+
+<p><a href="{{request.META.HTTP_REFERER}}">Back</a></p>
+
+</body>
+</html>

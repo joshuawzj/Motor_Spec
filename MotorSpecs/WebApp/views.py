@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.template import loader
+from django.db.models import Q
+from index.models import VehicleList, CustomerDetails
 
 # Create your views here.
 @login_required
@@ -11,3 +14,48 @@ def dashboard(request):
 def home(request):
     assert isinstance(request, HttpRequest)
     return render(request, 'WebApp/home.html')
+
+# search_list listens to the user request for the search and displays website-wide content containing the keyword
+def search_list(request):
+    query = request.GET.get('search_box')
+
+    if query:
+        # TODO: if Staff/Customer statement here
+        # Filtering search results
+        vehicleList_results = VehicleList.objects.filter(
+            Q(carID__iexact=query) |
+            Q(carMakeName__iexact=query) |
+            Q(carModel__iexact=query) |
+            Q(carSeries__iexact=query) |
+            Q(carFuelSystem__iexact=query) |
+            Q(carStandardTransmission__iexact=query) |
+            Q(carBodyType__iexact=query) |
+            Q(carDrive__iexact=query)
+        )
+        customerDetails_results = CustomerDetails.objects.filter(
+            Q(customerID__iexact=query) |
+            Q(customerName__contains=query)
+        )
+        if vehicleList_results:
+            all_results = vehicleList_results
+        elif customerDetails_results:
+            all_results = customerDetails_results
+        else:
+            all_results = None
+
+    else:
+        # TODO: if Staff/Customer statement here
+        all_results = None
+
+    if all_results != None:
+        count = all_results.__len__()
+    else:
+        count = 0
+    template = loader.get_template('WebApp/results.html')
+    context = {
+        'all_results': all_results,
+        'vehicleList_results': vehicleList_results,
+        'customerDetails_results': customerDetails_results,
+        'search_count': count
+    }
+    return HttpResponse(template.render(context, request))
