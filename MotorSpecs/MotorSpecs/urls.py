@@ -31,6 +31,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     path('dashboard/', WebApp.views.dashboard, name='dashboard'),
     url(r'^dashboard/results/$', WebApp.views.search_list, name='search'),
-    path('vehiclelist/', include('ViewVehicleList.urls'))
+    path('vehiclelist/', include('VehicleList.urls'))
     
 ]
