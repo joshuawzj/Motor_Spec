@@ -1,10 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>VehicleList</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 
+    <table class="table table-hover">
+        <caption>VehicleList</caption>
+        <thead>
+            <tr>
+                <th>CarID</th>
+                <th>carMakeName</th>
+                <th>carModel</th>
+                <th>carSeries</th>
+                <th>carSeriesYear</th>
+                <th>carPriceNew</th>
+                <th>carEngineSize</th>
+                <th>carFuelSystem</th>
+                <th>carTankCapacity</th>
+                <th>carPower</th>
+                <th>carSeatingCapacity</th>
+                <th>carStandardTransmission</th>
+                <th>carBodyType</th>
+                <th>carDrive</th>
+                <th>carWheelbase</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for car in car_list %}
+            <tr>
+                <td>{{ car.carID}}</td>
+                <td>{{ car.carMakeName }}</td>
+                <td>{{ car.carModel}}</td>
+                <td>{{ car.carSeries}}</td>
+                <td>{{ car.carSeriesYear }}</td>
+                <td>{{ car.carPriceNew }}</td>
+                <td>{{ car.carEngineSize }}</td>
+                <td>{{ car.carFuelSystem }}</td>
+                <td>{{ car.carTankCapacity }}</td>
+                <td>{{ car.carPower }}</td>
+                <td>{{ car.carSeatingCapacity }}</td>
+                <td>{{ car.carStandardTransmission }}</td>
+                <td>{{ car.carBodyType }}</td>
+                <td>{{ car.carDrive }}</td>
+                <td>{{ car.carWheelbase }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 </body>
+
 </html>
