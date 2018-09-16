@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import VehicleList
+from index.models import VehicleList
+# from .models import VehicleList
 import json
 
 # Create your views here.
