@@ -1,4 +1,5 @@
 from django.contrib import admin
+from .models import VehicleList
 
 # Register your models here.
 
