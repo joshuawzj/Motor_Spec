@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>RentalTrends</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <table class="table table-hover">
+        <caption>RentalTrends</caption>
+        <thead>
+            <tr>
+                <th>mostPopularVehicle</th>
+                <th>mostPopularType</th>
+                <th>mostPopularMonth</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in item_list %}
+            <tr>
+                <td>{{ item.mostPopularVehicle}}</td>
+                <td>{{ item.mostPopularType }}</td>
+                <td>{{ item.mostPopularMonth}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>
