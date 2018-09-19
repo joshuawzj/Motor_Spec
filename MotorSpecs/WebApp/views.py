@@ -15,6 +15,10 @@ def home(request):
     assert isinstance(request, HttpRequest)
     return render(request, 'WebApp/home.html')
 
+def aboutUs(request):
+    assert isinstance(request, HttpRequest)
+    return render(request, 'WebApp/aboutUs.html')
+
 # search_list listens to the user request for the search and displays website-wide content containing the keyword
 def search_list(request):
     query = request.GET.get('search_box')
