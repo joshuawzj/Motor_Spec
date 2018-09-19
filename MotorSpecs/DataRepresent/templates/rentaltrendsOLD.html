@@ -1,17 +1,17 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
 
-{% block navbuttons %}
-        <li><a href="/home/">Home</a></li>
-        <li><a href="#">Stores</a></li>
-        <li><a href="/vehiclelist/">View Cars</a></li>
-        <li><a href="/aboutus/">About Us</a></li>
-	{% if user.is_authenticated %}
-        <li class="active"><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
-      	{% endif %}
-{% endblock navbuttons %}
+<head>
+    <meta charset="utf-8">
+    <title>RentalTrends</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 
-{% block content %}
-<table class="table table-hover">
+<body>
+
+    <table class="table table-hover">
         <caption>RentalTrends</caption>
         <thead>
             <tr>
@@ -30,4 +30,7 @@
             {% endfor %}
         </tbody>
     </table>
-{% endblock content %}
+
+</body>
+
+</html>
