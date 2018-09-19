@@ -1,14 +1,7 @@
 from django.shortcuts import render
 from index.models import RentalTrends
-<<<<<<< HEAD
-<<<<<<< HEAD
 from index.models import StoreTrends
-=======
 from django.contrib.auth.decorators import login_required
->>>>>>> d9aa24a196fef12596d941551370c1f6cf9622e7
-=======
-from django.contrib.auth.decorators import login_required
->>>>>>> d9aa24a196fef12596d941551370c1f6cf9622e7
 
 # Create your views here.
 
@@ -22,12 +15,10 @@ def rentaltrends(request):
             'mostPopularType': item.mostPopularType,
             'mostPopularMonth': item.mostPopularMonth,
         }
-        res.append(json)
-<<<<<<< HEAD
-<<<<<<< HEAD
+        res.append(json)    
     return render(request, 'rentaltrends.html', {'item_list': res})
 
-
+@login_required
 def storetrends(request):
     stores = StoreTrends.objects.all()
     res = []
@@ -41,9 +32,3 @@ def storetrends(request):
         }
         res.append(json)
     return render(request, 'storetrends.html', {'store_list':res})
-=======
-    return render(request, 'rentaltrends.html',{'item_list': res})
->>>>>>> d9aa24a196fef12596d941551370c1f6cf9622e7
-=======
-    return render(request, 'rentaltrends.html',{'item_list': res})
->>>>>>> d9aa24a196fef12596d941551370c1f6cf9622e7

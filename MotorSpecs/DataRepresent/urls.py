@@ -4,15 +4,6 @@ from . import views
 
 
 urlpatterns = [
-<<<<<<< HEAD
     path('', views.rentaltrends),
-    path('', views.storetrends)
-
+    path('', views.storetrends),
 ]
-=======
-    path('', views.rentaltrends)
-]
-<<<<<<< HEAD
->>>>>>> d9aa24a196fef12596d941551370c1f6cf9622e7
-=======
->>>>>>> d9aa24a196fef12596d941551370c1f6cf9622e7

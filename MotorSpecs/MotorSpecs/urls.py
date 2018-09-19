@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 import WebApp.views
+import DataRepresent.views
 from django.conf import settings
 from django.conf.urls import url
 from django.contrib.auth.views import LoginView
@@ -34,8 +35,8 @@ urlpatterns = [
     url(r'^dashboard/results/$', WebApp.views.search_list, name='search'),
     url(r'^home/results/$', WebApp.views.CustomerSearch_list, name='customerSearch'),
     path('vehiclelist/', include('VehicleList.urls')),
-    path('rentaltrends/', include('DataRepresent.urls')),
-    path('storetrends/', include('DataRepresent.urls'))
+    path('rentaltrends/', DataRepresent.views.rentaltrends, name='rentaltrends'),
+    path('storetrends/', DataRepresent.views.storetrends, name='storetrends')
 
 
 ]
