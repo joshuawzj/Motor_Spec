@@ -1,0 +1,17 @@
+{% extends "WebApp/base.html" %}
+
+{% block navbuttons %}
+        <li><a href="/home/">Home</a></li>
+        <li><a href="#">Stores</a></li>
+        <li><a href="/vehiclelist/">View Cars</a></li>
+        <li class="active"><a href="/aboutus/">About Us</a></li>
+	{% if user.is_authenticated %}
+        <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
+      	{% endif %}
+{% endblock navbuttons %}
+
+{% block content %}
+<img src="https://i.postimg.cc/6q2k0vLz/Logo.png" style="float:center; alt="MotorSpecs Logo" width="200" height="180">
+
+<p>Motorspecs Have been operating for over a decade A 1994 issue of "Before & After" magazine traces "Lorem ipsum ..." to a jumbled Latin version of a passage from de Finibus Bonorum et Malorum, a treatise on the theory of ethics written by Cicero in 45 B.C. The passage "Lorem ipsum ..." is taken from text that reads, "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit ...," which translates as, "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+{% endblock content %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Store Trends</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <table class="table table-hover">
+        <caption>StoreTrends</caption>
+        <thead>
+            <tr>
+                <th>storeID</th>
+                <th>storeProductivity</th>
+                <th>mostProductiveMonth</th>
+                <th>mostRentedVehicle</th>
+                <th>mostPickupOrReturn</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in item_list %}
+            <tr>
+                <td>{{ store.storeID }}</td>
+                <td>{{ store.storeProductivity }}</td>
+                <td>{{ store.mostProductiveMonth }}</td>
+                <td>{{ store.mostRentedVehicle }}</td>
+                <td>{{ store.mostPickupOrReturn }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>
