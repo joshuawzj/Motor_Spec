@@ -31,6 +31,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     path('dashboard/', WebApp.views.dashboard, name='dashboard'),
     url(r'^dashboard/results/$', WebApp.views.search_list, name='search'),
+    url(r'^home/results/$', WebApp.views.CustomerSearch_list, name='customerSearch'),
     path('vehiclelist/', include('VehicleList.urls')),
     path('rentaltrends/', include('DataRepresent.urls'))
 

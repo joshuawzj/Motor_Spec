@@ -61,3 +61,41 @@ def search_list(request):
         'search_count': count
     }
     return HttpResponse(template.render(context, request))
+
+def CustomerSearch_list(request):
+    query = request.GET.get('searchBox')
+    vehicleList_results = None
+    customerDetails_results = None
+
+    if query:
+        # TODO: if Staff/Customer statement here
+        # Filtering search results
+        vehicleList_results = VehicleList.objects.filter(
+            Q(carID__contains=query) |
+            Q(carMakeName__contains=query) |
+            Q(carModel__contains=query) |
+            Q(carSeries__contains=query) |
+            Q(carFuelSystem__contains=query) |
+            Q(carStandardTransmission__contains=query) |
+            Q(carBodyType__contains=query) |
+            Q(carDrive__contains=query)
+        )
+        all_results = vehicleList_results
+
+    else:
+        # TODO: if Staff/Customer statement here
+        all_results = None
+
+    if all_results != None:
+        count = all_results.__len__()
+    else:
+        count = 0
+    template = loader.get_template('WebApp/results.html')
+    context = {
+        'all_results': all_results,
+        'vehicleList_results': vehicleList_results,
+        'customerDetails_results': customerDetails_results,
+        'search_count': count
+    }
+    return HttpResponse(template.render(context, request))
+
