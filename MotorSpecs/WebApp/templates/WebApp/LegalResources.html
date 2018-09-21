@@ -1,0 +1,72 @@
+{% extends "WebApp/base.html" %}
+
+{% block navbuttons %}
+        <li><a href="/home/">Home</a></li>
+        <li><a href="#">Stores</a></li>
+        <li><a href="/vehiclelist/">View Cars</a></li>
+        <li class="active"><a href="/aboutus/">About Us</a></li>
+		<li><a href="/LegalResources/">Legal Resources</a></li>
+		
+	{% if user.is_authenticated %}
+        <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
+      	{% endif %}
+{% endblock navbuttons %}
+
+{% block content %}
+<img src="https://i.postimg.cc/6q2k0vLz/Logo.png" style="float:center; alt="MotorSpecs Logo" width="200" height="180">
+
+<h1 align="center">Terms & Conditions </h1>
+
+<p align="center">Terms & Conditions – MotorSpecs Vehicle Hiring Services
+
+<br><br><strong>SCOPE OF USE</strong><br><br>
+
+
+Renter will use the Rented Vehicle only for personal or routine business use and operate the Rented Vehicle only on properly maintained roads and parking lots.  Renter will comply with all applicable laws relating to holding of licensure to operate the vehicle and pertaining to the operation of motor vehicles.  Renter will not sublease the Rental Vehicle or use it as a vehicle for hire.
+<br><br>
+<strong>SECURITY DEPOSIT</strong><br><br>
+Renter will be required to provide a security deposit to MotorSpecs in the amount of [$2,000.00] (“Security Deposit”) to be used in the event of loss or damage to the Rental Vehicle during the term of this agreement.  MotorSpecs may, in lieu of collection of a security deposit, place a hold on a credit card in the same amount.  In the event of damage to the Rental Vehicle, Owner will apply this Security Deposit to defray the costs of necessary repairs or replacement.  If the cost for repair or replacement of damage to the Rental Vehicle exceeds the amount of the Security Deposit, Renter will be responsible for payment to MotorSpecs of the balance of this cost. <br><br>
+
+
+<strong>INSURANCE</strong><br><br>
+Renter must provide to MotorSpecs with proof of insurance that would cover damage to the Rental Vehicle at the time this Car Rental Agreement is signed, as well as personal injury to the Renter, passengers in the Rented Vehicle, and other persons or property.  If the Rental Vehicle is damaged or destroyed while it is in the possession of Renter, Renter agrees to pay any required insurance deductible and also assign all rights to collect insurance proceeds to MotorSpecs.<br><br>
+
+
+<strong>INDEMNIFICATION</strong><br><br>
+Renter agrees to indemnify, defend, and hold harmless the Owner for any loss, damage, or legal actions against Owner (MotorSpecs) as a result of Renter’s operation or use of the Rented Vehicle during the term of this Car Rental Agreement.  This includes any attorney fees necessarily incurred for these purposes.  Renter will also pay for any parking tickets, moving violations, or other citations received while in possession of the Rented Vehicle.<br><br>
+
+
+<strong>REPRESENTATIONS AND WARRANTIES</strong><br><br>
+MotorSpecs represents and warrants that to Owner’s knowledge; the Rental Vehicle is in good condition and is safe for the ordinary operation of the vehicle.
+Renter represents and warrants that Renter is legally entitled to operate a motor vehicle under the laws of this jurisdiction and will not operate it in violation of any laws, or in any negligent or illegal manner.
+Renter has been given an opportunity to examine the Rental Vehicle in advance of taking possession of it, and upon such inspection, is not aware of any damage existing on the vehicle other than that notated by separate Existing Damage document. <br><br>
+
+
+<strong>JURISDICTION AND VENUE</strong><br><br>
+
+ In the event of any dispute over this agreement, this Car Rental Agreement will be interpreted by the laws of the State of [STATE], and any lawsuit or arbitration must be brought addressed in the state of initial transaction  If any portion of this agreement is found to be unenforceable by a court of competent jurisdiction, the remainder of the agreement would still have full force and effect.<br><br>
+ 
+<strong>ENTIRE AGREEMENT</strong> <br><br>
+ This Car Rental Agreement constitutes the entire agreement between the Parties with respect to this rental arrangement.  No modification to this agreement can be made unless in writing signed by both Parties.
+</p>
+<br>
+<br>
+<br>
+
+<p>
+<h1 align="center">MotorSpecs Cancellation Policy</h1>
+
+<p align="center">What is the cancellation policy?<br><br>
+
+You will be provided with a full refund as long as you cancel the booking before pickup in most case.
+However, we have other policies as well: Free cancellation up to three hours before pick-up time. If you cancel less than certain three hours in advance, you'll receive a refund less than fully prepaid amount or you will receive no refund at all.<br><br><br>
+
+If you cancel AFTER your rental is due to start, you will receive no refund. If you do not pick up the car (usually called a 'no-show'), you will receive no refund. we cal it a 'no-show' when you do not pick the car up, for example: You do not arrive at the arranged date and time, you do not have the right documents, or you're not eligible for the rental, or the main driver does not have a credit card with enough credit for the deposit..
+
+<br><br>
+MetroSpecs have the right to decline your car hire application despite having met all the requirements.</p>
+
+
+
+
+{% endblock content %}
