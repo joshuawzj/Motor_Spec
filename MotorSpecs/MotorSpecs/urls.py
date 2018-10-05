@@ -37,7 +37,9 @@ urlpatterns = [
     url(r'^home/results/$', WebApp.views.CustomerSearch_list, name='customerSearch'),
     path('vehiclelist/', include('VehicleList.urls')),
     path('rentaltrends/', DataRepresent.views.rentaltrends, name='rentaltrends'),
-    path('storetrends/', DataRepresent.views.storetrends, name='storetrends')
+    path('storetrends/', DataRepresent.views.storetrends, name='storetrends'),
+    path('vehiclerecommendation/', WebApp.views.vehicleRecommendation, name='vehiclerecommendation'),
+    path('vehiclerecommendationresults/', WebApp.views.vehicleRecommendationResult, name='vehiclerecommendationresults')
 
 
 ]

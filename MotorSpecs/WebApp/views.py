@@ -107,3 +107,51 @@ def CustomerSearch_list(request):
     }
     return HttpResponse(template.render(context, request))
 
+def vehicleRecommendation(request):
+    assert isinstance(request, HttpRequest)
+    return render(request, 'WebApp/vehicleRecommendation.html')
+
+def vehicleRecommendationResult(request):
+    results = None
+
+    carType = request.GET.get('car_box')
+    transmissionType = request.GET.get('transmission_box')
+    engineSize = request.GET.get('engine_box')
+    fuelType = request.GET.get('fuel_box')
+    year = request.GET.get('year_box')
+    model = request.GET.get('model_box')
+
+    if not carType:
+        carType = True
+    if not transmissionType:
+        transmissionType = True
+    if not engineSize:
+        engineSize = True
+    if not fuelType:
+        fuelType = True
+    if not year:
+        year = True
+    if not model:
+        model = True
+
+
+    results = VehicleList.objects.filter(
+        Q(carBodyType__contains=carType) |
+        Q(carStandardTransmission__contains=transmissionType) |
+        Q(carEngineSize__contains=engineSize) |
+        Q(carFuelSystem__contains=fuelType) |
+        Q(carSeriesYear__contains=year) |
+        Q(carModel__contains=model)
+    )
+
+    if results != None:
+        count = results.__len__()
+    else:
+        count = 0
+
+    template = loader.get_template('WebApp/recommendationResults.html')
+    context = {
+        'results': results,
+        'search_count': count
+    }
+    return HttpResponse(template.render(context, request))
