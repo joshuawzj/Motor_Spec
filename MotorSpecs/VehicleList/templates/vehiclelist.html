@@ -13,49 +13,32 @@
 
 
 {% block content %}
-
-    <table class="table table-hover">
-        <caption>VehicleList</caption>
-        <thead>
-            <tr>
-                <th>CarID</th>
-                <th>carMakeName</th>
-                <th>carModel</th>
-                <th>carSeries</th>
-                <th>carSeriesYear</th>
-                <th>carPriceNew</th>
-                <th>carEngineSize</th>
-                <th>carFuelSystem</th>
-                <th>carTankCapacity</th>
-                <th>carPower</th>
-                <th>carSeatingCapacity</th>
-                <th>carStandardTransmission</th>
-                <th>carBodyType</th>
-                <th>carDrive</th>
-                <th>carWheelbase</th>
-            </tr>
-        </thead>
-        <tbody>
+	    <h1>Vehicles</h1>
             {% for car in car_list %}
-            <tr>
-                <td>{{ car.carID}}</td>
-                <td>{{ car.carMakeName }}</td>
-                <td>{{ car.carModel}}</td>
-                <td>{{ car.carSeries}}</td>
-                <td>{{ car.carSeriesYear }}</td>
-                <td>{{ car.carPriceNew }}</td>
-                <td>{{ car.carEngineSize }}</td>
-                <td>{{ car.carFuelSystem }}</td>
-                <td>{{ car.carTankCapacity }}</td>
-                <td>{{ car.carPower }}</td>
-                <td>{{ car.carSeatingCapacity }}</td>
-                <td>{{ car.carStandardTransmission }}</td>
-                <td>{{ car.carBodyType }}</td>
-                <td>{{ car.carDrive }}</td>
-                <td>{{ car.carWheelbase }}</td>
-            </tr>
+ 		<div class="panel panel-default">
+  			<div class="panel-heading">
+   				 <h3 class="panel-title">{{ car.carMakeName }}
+                			{{ car.carModel}}
+               				{{ car.carSeries}}
+                			{{ car.carSeriesYear }}</h3>
+  			</div>
+  			<div class="panel-body">
+  	  			{{ car.carID}}
+                		{{ car.carPriceNew }}
+                		{{ car.carEngineSize }}
+                		{{ car.carFuelSystem }}
+                		{{ car.carTankCapacity }}
+                		{{ car.carPower }}
+                		{{ car.carSeatingCapacity }}
+                		{{ car.carStandardTransmission }}
+                		{{ car.carBodyType }}
+                		{{ car.carDrive }}
+                		{{ car.carWheelbase }}
+  			</div>
+		</div>
+                
+            
             {% endfor %}
-        </tbody>
-    </table>
+
 
 {% endblock content %}
