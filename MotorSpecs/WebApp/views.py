@@ -23,6 +23,10 @@ def LegalResources(request):
     assert isinstance(request, HttpRequest)
     return render(request, 'WebApp/LegalResources.html')
 
+def Stores(request):
+    assert isinstance(request, HttpRequest)
+    return render(request, 'WebApp/stores.html')
+
 # search_list listens to the user request for the search and displays website-wide content containing the keyword
 def search_list(request):
     query = request.GET.get('search_box')
