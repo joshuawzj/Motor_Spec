@@ -32,6 +32,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     path('dashboard/', WebApp.views.dashboard, name='dashboard'),
     path('aboutus/', WebApp.views.aboutUs, name='aboutUs'),
+    path('stores/', WebApp.views.Stores, name='Stores'),
     path('legalresources/', WebApp.views.LegalResources, name='LegalResources'),
     url(r'^dashboard/results/$', WebApp.views.search_list, name='search'),
     url(r'^home/results/$', WebApp.views.CustomerSearch_list, name='customerSearch'),
