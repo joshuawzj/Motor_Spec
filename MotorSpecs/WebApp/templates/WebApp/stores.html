@@ -1,0 +1,95 @@
+{% extends "WebApp/base.html" %}
+
+{% block navbuttons %}
+        <li><a href="/home/">Home</a></li>
+        <li><a href="/stores/">Stores</a></li>
+        <li><a href="/vehiclelist/">View Cars</a></li>
+        <li><a href="/aboutus/">About Us</a></li>
+		<li class="active"><a href="/legalresources/">Legal Resources</a></li>
+	{% if user.is_authenticated %}
+        <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
+      	{% endif %}
+{% endblock navbuttons %}
+
+
+
+
+{% block content %}
+
+  <img src="https://i.postimg.cc/6q2k0vLz/Logo.png" style="float:center; alt="MotorSpecs Logo" width="200" height="180">
+  
+  <p style="border-style:inset;" style="border-width:15px;"> Our nation-wide offices feature a wide range of vehicles available for immediate hire. Vehicles hired at any of our office locations are comprehensively insured, and our top-notch service provision aims to protect the right of our renters under the Australian Consumer Law (ACL).  
+  
+  <p style="border-style: inset;" style="border-width: 15px;" > Note: MotorSpecs has not whatsoever, been found in breach of any legal Act under the Australian Competition and Consumer Commission (ACCC). This validates our quality leasing/rental services. We shall be looking forward to your patronage at our various pickup locations.
+
+ 
+ 
+ 
+ 
+ <table style="border:5px solid red;" style="cellspacing:10px;" cellspacing="5"">
+
+  <tr>
+    <td style="border:5px solid gray;" style="cellspacing:10px;">
+	<div>
+     <iframe width="500" height="400" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=500&cp=-37.81752999999999~144.9671&lvl=10&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+     </iframe>
+     <div style="white-space: nowrap; text-align: center; width: 500px; padding: 6px 0;">
+        <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=-37.81752999999999~144.9671&amp;sty=r&amp;lvl=10&amp;FORM=MBEDLD">View this location on a Larger Map</a> &nbsp; | &nbsp;
+        <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=-37.81752999999999~144.9671&amp;sty=r&amp;lvl=10&amp;rtp=~pos.-37.81752999999999_144.9671____&amp;FORM=MBEDLD">Locate MotorSpecs <strong>Melbourne</strong></a>
+    </div></td>
+    
+    
+    
+    <td style="border:5px solid gray;"  style="cellspacing:10px;"><div>
+     <iframe width="500" height="400" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=500&cp=-27.51360000000001~153.012&lvl=11&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+     </iframe>
+     <div style="white-space: nowrap; text-align: center; width: 500px; padding: 6px 0;">
+        <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=-27.51360000000001~153.012&amp;sty=r&amp;lvl=11&amp;FORM=MBEDLD">View our location on a larger Map</a> &nbsp; | &nbsp;
+        <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=-27.51360000000001~153.012&amp;sty=r&amp;lvl=11&amp;rtp=~pos.-27.51360000000001_153.012____&amp;FORM=MBEDLD">Locate MotorSpecs <strong>Brisbane</strong></a>
+    </div>
+</div></td>
+  </tr>
+  
+  
+  
+  <tr>
+    <td style="border:5px solid gray;"  style="cellspacing:10px;"><div>
+     <iframe width="500" height="400" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=500&cp=-34.890625~138.363694&lvl=10&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+     </iframe>
+     <div style="white-space: nowrap; text-align: center; width: 500px; padding: 6px 0;">
+        <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=-34.890625~138.363694&amp;sty=r&amp;lvl=10&amp;FORM=MBEDLD">View our location on larger Map</a> &nbsp; | &nbsp;
+        <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=-34.890625~138.363694&amp;sty=r&amp;lvl=10&amp;rtp=~pos.-34.890625_138.363694____&amp;FORM=MBEDLD">Locate MotorSpecs <strong>Adelaide</strong></a>
+    </div>
+</div></td>
+    
+    
+    <td style="border:5px solid gray;"  style="cellspacing:10px;"><div>
+     <iframe width="500" height="400" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=500&cp=-33.89183164655819~150.95069751884438&lvl=10&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+     </iframe>
+     <div style="white-space: nowrap; text-align: center; width: 500px; padding: 6px 0;">
+        <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=-33.89183164655819~150.95069751884438&amp;sty=r&amp;lvl=10&amp;FORM=MBEDLD">View this location on a Larger Map</a> &nbsp; | &nbsp;
+        <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=-33.89183164655819~150.95069751884438&amp;sty=r&amp;lvl=10&amp;rtp=~pos.-33.89183164655819_150.95069751884438____&amp;FORM=MBEDLD">Locate MotorSpecs <strong>Sydney</strong></a>
+    </div>
+</div></td>
+  </tr>
+  
+  
+  
+  
+</table>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+{% endblock content %}
