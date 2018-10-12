@@ -13,32 +13,33 @@
 
 
 {% block content %}
-	    <h1>Vehicles</h1>
-            {% for car in car_list %}
- 		<div class="panel panel-default">
+	    <h1 align="center">Vehicles</h1>
+        {% for car in car_list %}
+ 		<div class="panel panel-default" align="center">
   			<div class="panel-heading">
-   				 <h3 class="panel-title">{{ car.carMakeName }}
-                			{{ car.carModel}}
-               				{{ car.carSeries}}
-                			{{ car.carSeriesYear }}</h3>
+   				 <h3 class="panel-title">
+					{{ car.carMakeName }}
+                	{{ car.carModel}}
+               		{{ car.carSeries}}
+                	{{ car.carSeriesYear }}</h3>
   			</div>
   			<div class="panel-body">
+				{% load static %}
+				<img src="{% static '/'|add:car.carMakeName|add:car.carModel|add:'.png' %}" width="400" height="250">
   	  			{{ car.carID}}
-                		{{ car.carPriceNew }}
-                		{{ car.carEngineSize }}
-                		{{ car.carFuelSystem }}
-                		{{ car.carTankCapacity }}
-                		{{ car.carPower }}
-                		{{ car.carSeatingCapacity }}
-                		{{ car.carStandardTransmission }}
-                		{{ car.carBodyType }}
-                		{{ car.carDrive }}
-                		{{ car.carWheelbase }}
+                {{ car.carPriceNew }}
+                {{ car.carEngineSize }}
+                {{ car.carFuelSystem }}
+                {{ car.carTankCapacity }}
+                {{ car.carPower }}
+                {{ car.carSeatingCapacity }}
+                {{ car.carStandardTransmission }}
+                {{ car.carBodyType }}
+                {{ car.carDrive }}
+                {{ car.carWheelbase }}
   			</div>
 		</div>
-                
-            
-            {% endfor %}
+		{% endfor %}
 
 
 {% endblock content %}

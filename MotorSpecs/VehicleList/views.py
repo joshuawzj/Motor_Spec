@@ -31,3 +31,28 @@ def index(request):
 
     return render(request, 'vehiclelist.html',{'car_list':res})
 
+def index2(request):
+    cars = VehicleList.objects.all()
+    res = []
+    for customer in customers:
+        json = {
+            'carID':str(car.carID),
+            'carMakeName':car.carMakeName,
+            'carModel':car.carModel,
+            'carSeries':car.carSeries,
+            'carSeriesYear':car.carSeriesYear,
+            'carPriceNew':car.carPriceNew,
+            'carEngineSize':car.carEngineSize,
+            'carFuelSystem':car.carFuelSystem,
+            'carTankCapacity':car.carTankCapacity,
+            'carPower':car.carPower,
+            'carSeatingCapacity':car.carSeatingCapacity,
+            'carStandardTransmission':car.carStandardTransmission,
+            'carBodyType':car.carBodyType,
+            'carDrive':car.carDrive,
+            'carWheelbase':car.carWheelbase
+        }
+        print(json)
+        res.append(json)
+
+    return render(request, 'vehiclelist.html',{'car_list':res})

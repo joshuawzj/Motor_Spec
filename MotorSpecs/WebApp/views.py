@@ -23,6 +23,10 @@ def LegalResources(request):
     assert isinstance(request, HttpRequest)
     return render(request, 'WebApp/LegalResources.html')
 
+def Stores(request):
+    assert isinstance(request, HttpRequest)
+    return render(request, 'WebApp/stores.html')
+
 # search_list listens to the user request for the search and displays website-wide content containing the keyword
 def search_list(request):
     query = request.GET.get('search_box')
@@ -155,7 +159,10 @@ def vehicleRecommendationResult(request):
         'search_count': count
     }
     return HttpResponse(template.render(context, request))
+<<<<<<< HEAD
 
 def customerdetails(request):
     assert isinstance(request, HttpRequest)
     return render(request, 'WebApp/customerdetails.html')
+=======
+>>>>>>> f43f3b6491cee2e53a9873edec55bc3dd4db4616
