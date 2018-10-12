@@ -155,3 +155,7 @@ def vehicleRecommendationResult(request):
         'search_count': count
     }
     return HttpResponse(template.render(context, request))
+
+def customerdetails(request):
+    assert isinstance(request, HttpRequest)
+    return render(request, 'WebApp/customerdetails.html')
