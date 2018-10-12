@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block navbuttons %}
+        <li><a href="/home/">Home</a></li>
+        <li><a href="#">Stores</a></li>
+        <li><a href="/vehiclelist/">View Cars</a></li>
+        <li><a href="/aboutus/">About Us</a></li>
+		<li><a href="/legalresources/">Legal Resources</a></li>
+	{% if user.is_authenticated %}
+        <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
+      	{% endif %}
+{% endblock navbuttons %}
+
+{% block content %}
+    <h1>Customer Details</h1>
+            {% for customer in customer_list %}
+    <div class="panel panel-default">
+                <div class="panel-heading">
+                     <h3 class="panel-title">{{ customer.customerName }}
+                                {{ customer.CustomerID}}</h3>
+
+                </div>
+                <div class="panel-body">
+                    {{ customer.CustomerName}}
+                            {{ customer.CustomerName }}
+                            {{ customer.CustomerPhone }}
+                            {{ customer.CustomerAddress }}
+                            {{ customer.CustomerDOB }}
+                            {{ customer.CustomerGender }}
+                            {{ customer.CustomerOccupation }}
+                </div>
+            </div>
+
+
+                {% endfor %}
+
+
+{% endblock content %}
