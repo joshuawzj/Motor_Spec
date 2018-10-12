@@ -25,18 +25,18 @@
   			</div>
   			<div class="panel-body">
 				{% load static %}
-				<img src="{% static '/'|add:car.carMakeName|add:car.carModel|add:'.png' %}" width="400" height="250">
-  	  			{{ car.carID}}
-                {{ car.carPriceNew }}
-                {{ car.carEngineSize }}
-                {{ car.carFuelSystem }}
-                {{ car.carTankCapacity }}
-                {{ car.carPower }}
-                {{ car.carSeatingCapacity }}
-                {{ car.carStandardTransmission }}
-                {{ car.carBodyType }}
-                {{ car.carDrive }}
-                {{ car.carWheelbase }}
+				<img src="{% static '/'|add:car.carMakeName|add:car.carModel|add:'.png' %}" width="400" height="250" style="float:left;">
+  	  			Car ID: {{ car.carID}} <br>
+                Price: {{ car.carPriceNew }} <br>
+                Engine Size: {{ car.carEngineSize }} <br>
+                Fuel System: {{ car.carFuelSystem }} <br>
+                Tank Capacity: {{ car.carTankCapacity }} <br>
+                Power: {{ car.carPower }} <br>
+                Seating Capacity: {{ car.carSeatingCapacity }} <br>
+                Transmssion: {{ car.carStandardTransmission }} <br>
+                Body Type: {{ car.carBodyType }} <br>
+                Drive: {{ car.carDrive }} <br>
+                Wheel Base: {{ car.carWheelbase }}
   			</div>
 		</div>
 		{% endfor %}
