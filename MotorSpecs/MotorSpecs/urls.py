@@ -41,6 +41,8 @@ urlpatterns = [
     path('storetrends/', DataRepresent.views.storetrends, name='storetrends'),
     path('vehiclerecommendation/', WebApp.views.vehicleRecommendation, name='vehiclerecommendation'),
     path('customerdetails/', WebApp.views.customerdetails_list, name='customerdetails'),
-    path('vehiclerecommendationresults/', WebApp.views.vehicleRecommendationResult, name='vehiclerecommendationresults')
-
+    path('vehiclerecommendationresults/', WebApp.views.vehicleRecommendationResult, name='vehiclerecommendationresults'),
+    #path('stores/?id=<int:id>/', WebApp.views.storeDetails, name='storedetails')
+    url(r'^stores/?id=[0-9]+/', WebApp.views.storeDetails, name='storedetails')
+    #path('stores/<int:id>/', WebApp.views.storeDetails, name='storedetails')
 ]

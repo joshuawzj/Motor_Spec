@@ -2,10 +2,10 @@
 
 {% block navbuttons %}
         <li><a href="/home/">Home</a></li>
-        <li><a href="/stores/">Stores</a></li>
+        <li class="active"><a href="/stores/">Stores</a></li>
         <li><a href="/vehiclelist/">View Cars</a></li>
         <li><a href="/aboutus/">About Us</a></li>
-		<li class="active"><a href="/legalresources/">Legal Resources</a></li>
+		<li><a href="/legalresources/">Legal Resources</a></li>
 	{% if user.is_authenticated %}
         <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
       	{% endif %}
@@ -15,12 +15,10 @@
 
 
 {% block content %}
-
     <br><br>
-    <a href="" class="list-group-item">Store 1</a>
-    <a href="" class="list-group-item">Store 2</a>
-    <a href="" class="list-group-item">Store 3</a>
-    <a href="" class="list-group-item">Store 4</a>
+    {% for store in storeList %}
+        <a href="{% url 'storedetails' %}?id={{ store.storeID }}" class="list-group-item" target="_self">{{ store.storeName }}</a>
+    {% endfor %}
 
   <img src="https://i.postimg.cc/6q2k0vLz/Logo.png" style="float:center; alt="MotorSpecs Logo" width="200" height="180">
   

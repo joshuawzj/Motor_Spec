@@ -12,7 +12,17 @@
 {% endblock navbuttons %}
 
 {% block content %}
-    <h1 align="center">Store Name (STORE ID)</h1>
+    <h1 align="center">{{ storeObj.storeName }} (ID: {{ storeObj.storeID }})</h1>
+    <br>
+    <ul>
+        <li><b>Store ID: {{ storeObj.storeID }}</b></li>
+        <li><b>Store Name:</b> {{ storeObj.storeName }}</li>
+        <li><b>Store Address:</b> {{ storeObj.storeAddress }}</li>
+        <li><b>Store Phone:</b> {{ storeObj.storePhone }}</li>
+        <li><b>Store City:</b> {{ storeObj.storeCity }}</li>
+        <li><b>Store State Name:</b> {{ storeObj.storeStateName }}</li>
+    </ul>
+    <br>
 
     <a href="" class="list-group-item">View Rental History</a>
     <a href="" class="list-group-item">View Store Trends</a>

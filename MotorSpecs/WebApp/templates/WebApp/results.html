@@ -7,7 +7,7 @@
 <body>
 <h1>Search Results</h1>
 <p><i>{{ search_count }} results available.</i></p>
-<ul>
+<ul list-style-type="none">
     {% if all_results %}
         {% if all_results == vehicleList_results %}
             {% for vehicle in all_results %}
