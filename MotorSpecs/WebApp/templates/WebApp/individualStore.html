@@ -1,6 +1,11 @@
 {% extends "WebApp/base.html" %}
 
 {% block navbuttons %}
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"
+    type="text/javascript" charset="utf-8"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
+    type="text/javascript" charset="utf-8"></script>
+
         <li><a href="/home/">Home</a></li>
         <li><a href="/stores/">Stores</a></li>
         <li><a href="/vehiclelist/">View Cars</a></li>
@@ -25,5 +30,29 @@
     <br>
 
     <a href="{% url 'rentalhistory' %}?id={{ storeObj.storeID }}" class="list-group-item">View Rental History</a>
+
+    <br>
+
+    <div style="width: 100%; height: 480px" id="mapContainer"></div>
+  <script>
+    // Initialize the platform object:
+    var platform = new H.service.Platform({
+    'app_id': 'dFEX7kteHMzcUb9u7iQd',
+    'app_code': 'Uz2nLcsX9ns6alHJaC05xQ'
+    });
+
+    // Obtain the default map types from the platform object
+    var maptypes = platform.createDefaultLayers();
+
+    // Instantiate (and display) a map object:
+    var map = new H.Map(
+    document.getElementById('mapContainer'),
+    maptypes.normal.map,
+    {
+      zoom: 7,
+      center: { lng: 146.92, lat: -31.25 }
+    });
+  </script>
+
 
 {% endblock content %}
