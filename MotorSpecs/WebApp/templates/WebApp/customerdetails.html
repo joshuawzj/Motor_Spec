@@ -13,26 +13,28 @@
 
 {% block content %}
     <h1>Customer Details</h1>
-            {% for customer in customer_list %}
-    <div class="panel panel-default">
-                <div class="panel-heading">
-                     <h3 class="panel-title">{{ customer.customerName }}
-                                {{ customer.CustomerID}}</h3>
-
-                </div>
-                <div class="panel-body">
-                    {{ customer.CustomerName}}
-                            {{ customer.CustomerName }}
-                            {{ customer.CustomerPhone }}
-                            {{ customer.CustomerAddress }}
-                            {{ customer.CustomerDOB }}
-                            {{ customer.CustomerGender }}
-                            {{ customer.CustomerOccupation }}
-                </div>
-            </div>
-
-
+                <table style="width: 100%" border="1px gray">
+                <tr bgcolor="#ECF0F1">
+                    <th>Customer ID</th>
+                    <th>Customer Name</th>
+                    <th>Customer Phone</th>
+                    <th>Customer Address</th>
+                    <th>Customer DOB</th>
+                    <th>Customer Gender</th>
+                    <th>Customer Occupation</th>
+                </tr>
+                {% for customer in customer_list %}
+                    <tr bgcolor="#FDFEFE">
+                    <th>{{ customer.customerID }}</th>
+                    <th>{{ customer.customerName }}</th>
+                    <th>{{ customer.customerPhone }}</th>
+                    <th>{{ customer.customerAddress }}</th>
+                    <th>{{ customer.customerDOB }}</th>
+                    <th>{{ customer.customerGender }}</th>
+                    <th>{{ customer.customerOccupation }}</th>
+                    </tr>
                 {% endfor %}
-
+                </table>
+        </div>
 
 {% endblock content %}

@@ -161,8 +161,15 @@ def vehicleRecommendationResult(request):
     return HttpResponse(template.render(context, request))
 
 
-def customerdetails(request):
-    assert isinstance(request, HttpRequest)
-    return render(request, 'WebApp/customerdetails.html')
+# def customerdetails(request):
+#     assert isinstance(request, HttpRequest)
+#     return render(request, 'WebApp/customerdetails.html')
 
+def customerdetails_list(request):
+    customerList = CustomerDetails.objects.all
 
+    template = loader.get_template('WebApp/customerdetails.html')
+    context = {
+        'customer_list': customerList
+    }
+    return HttpResponse(template.render(context, request))

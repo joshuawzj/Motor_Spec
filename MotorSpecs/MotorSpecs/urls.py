@@ -40,8 +40,7 @@ urlpatterns = [
     path('rentaltrends/', DataRepresent.views.rentaltrends, name='rentaltrends'),
     path('storetrends/', DataRepresent.views.storetrends, name='storetrends'),
     path('vehiclerecommendation/', WebApp.views.vehicleRecommendation, name='vehiclerecommendation'),
-    path('customerdetails/', WebApp.views.customerdetails, name='customerdetails'),
+    path('customerdetails/', WebApp.views.customerdetails_list, name='customerdetails'),
     path('vehiclerecommendationresults/', WebApp.views.vehicleRecommendationResult, name='vehiclerecommendationresults')
-
 
 ]
