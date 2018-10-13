@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block navbuttons %}
+        <li><a href="/home/">Home</a></li>
+        <li><a href="/stores/">Stores</a></li>
+        <li><a href="/vehiclelist/">View Cars</a></li>
+        <li><a href="/aboutus/">About Us</a></li>
+		<li><a href="/legalresources/">Legal Resources</a></li>
+	{% if user.is_authenticated %}
+        <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
+      	{% endif %}
+{% endblock navbuttons %}
+
+{% block content %}
+    <h1>Rental History</h1>
+    <div style="overflow-y: scroll">
+                <table style="width: 100%" border="1px gray">
+                <tr bgcolor="#ECF0F1">
+                    <th>Store ID</th>
+                    <th>Store Name</th>
+                    <th>Order ID</th>
+                    <th>Order Creation Date</th>
+                    <th>Order Pickup/Return</th>
+                    <th>Order Pickup/Return Date</th>
+                    <th>Customer ID</th>
+                    <th>Customer Name</th>
+                    <th>Car ID</th>
+                    <th>Car Make Name</th>
+                </tr>
+                {% for rental in rental_list %}
+                    <tr bgcolor="#FDFEFE">
+                    <th>{{ rental.storeID }}</th>
+                    <th>{{ rental.storeName }}</th>
+                    <th>{{ rental.orderID }}</th>
+                    <th>{{ rental.orderCreationDate }}</th>
+                    <th>{{ rental.orderPickupOrReturn }}</th>
+                    <th>{{ rental.orderPickupOrReturnDate }}</th>
+                    <th>{{ rental.customerID }}</th>
+                    <th>{{ rental.customerName }}</th>
+                    <th>{{ rental.carID }}</th>
+                    <th>{{ rental.carMakeName }}</th>
+                    </tr>
+                {% endfor %}
+                </table><br>
+        </div>
+
+{% endblock content %}

@@ -24,7 +24,6 @@
     </ul>
     <br>
 
-    <a href="" class="list-group-item">View Rental History</a>
-    <a href="" class="list-group-item">View Store Trends</a>
+    <a href="{% url 'rentalhistory' %}?id={{ storeObj.storeID }}" class="list-group-item">View Rental History</a>
 
 {% endblock content %}

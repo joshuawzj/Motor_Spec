@@ -3,7 +3,7 @@ from django.http import HttpRequest, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.template import loader
 from django.db.models import Q
-from index.models import VehicleList, CustomerDetails, StoreDetail
+from index.models import VehicleList, CustomerDetails, StoreDetail, RentalHistory
 
 # Create your views here.
 @login_required
@@ -185,5 +185,16 @@ def storeDetails(request):
     template = loader.get_template('WebApp/individualStore.html')
     context = {
         'storeObj': store
+    }
+    return HttpResponse(template.render(context, request))
+
+def rentalHistory(request):
+    storeid = request.GET.get('id')
+    rentalList = RentalHistory.objects.filter(
+        Q(storeID=storeid)
+    )
+    template = loader.get_template('WebApp/rentalHistory.html')
+    context = {
+        'rental_list': rentalList
     }
     return HttpResponse(template.render(context, request))
