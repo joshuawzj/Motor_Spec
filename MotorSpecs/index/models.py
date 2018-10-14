@@ -66,3 +66,14 @@ class StoreTrends(models.Model):
     mostPickupOrReturn = models.CharField(max_length=10)
     def __str__(self):
         return self.storeID + ' - ' + self.storeProductivity + ', ' + self.mostRentedVehicle + ', ' + self.mostPickupOrReturn + ', ' + self.mostProductiveMonth
+
+class StoreDetail(models.Model):
+    storeID = models.CharField(max_length=250)
+    storeName = models.CharField(max_length=250)
+    storeAddress = models.CharField(max_length=75)
+    storePhone = models.CharField(max_length=50)
+    storeCity = models.CharField(max_length=75)
+    storeStateName = models.CharField(max_length=75)
+    def __str__(self):
+        return self.storeName + ' - ' + self.storeID
+

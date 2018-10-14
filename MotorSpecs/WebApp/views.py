@@ -3,7 +3,7 @@ from django.http import HttpRequest, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.template import loader
 from django.db.models import Q
-from index.models import VehicleList, CustomerDetails
+from index.models import VehicleList, CustomerDetails, StoreDetail, RentalHistory
 
 # Create your views here.
 @login_required
@@ -22,6 +22,15 @@ def aboutUs(request):
 def LegalResources(request):
     assert isinstance(request, HttpRequest)
     return render(request, 'WebApp/LegalResources.html')
+
+def Stores(request):
+    storeList = StoreDetail.objects.all
+
+    template = loader.get_template('WebApp/stores.html')
+    context = {
+        'storeList': storeList
+    }
+    return HttpResponse(template.render(context, request))
 
 # search_list listens to the user request for the search and displays website-wide content containing the keyword
 def search_list(request):
@@ -153,5 +162,39 @@ def vehicleRecommendationResult(request):
     context = {
         'results': results,
         'search_count': count
+    }
+    return HttpResponse(template.render(context, request))
+
+
+# def customerdetails(request):
+#     assert isinstance(request, HttpRequest)
+#     return render(request, 'WebApp/customerdetails.html')
+
+def customerdetails_list(request):
+    customerList = CustomerDetails.objects.all
+
+    template = loader.get_template('WebApp/customerdetails.html')
+    context = {
+        'customer_list': customerList
+    }
+    return HttpResponse(template.render(context, request))
+
+def storeDetails(request):
+    storeid = request.GET.get('id')
+    store = StoreDetail.objects.get(storeID=storeid)
+    template = loader.get_template('WebApp/individualStore.html')
+    context = {
+        'storeObj': store
+    }
+    return HttpResponse(template.render(context, request))
+
+def rentalHistory(request):
+    storeid = request.GET.get('id')
+    rentalList = RentalHistory.objects.filter(
+        Q(storeID=storeid)
+    )
+    template = loader.get_template('WebApp/rentalHistory.html')
+    context = {
+        'rental_list': rentalList
     }
     return HttpResponse(template.render(context, request))

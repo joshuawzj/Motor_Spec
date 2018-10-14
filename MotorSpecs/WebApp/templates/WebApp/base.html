@@ -14,16 +14,6 @@
       border-radius: 0;
     }
     
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
       .sidenav {
@@ -32,6 +22,8 @@
       }
       .row.content {height:auto;} 
     }
+	
+	.container { max-width: 750px; }
   </style>
 </head>
 <body>
@@ -69,20 +61,10 @@
   </div>
 </nav>
   
-<div class="container-fluid text-center">    
-  <div class="row content">
-    <div class="col-sm-2 sidenav">
-    <!--left-side column-->
-    </div>
-    <div class="col-sm-8 text-left"> 
+<div class="container" align="center">    
       {% block content %} {% endblock %}
       <hr>
       <h3>MotorSpecs</h3>
-    </div>
-    <div class="col-sm-2 sidenav">
-    <!--right-side column-->
-    </div>
-  </div>
 </div>
 
 <div class="navbar navbar-inverse navbar-fixed-bottom">

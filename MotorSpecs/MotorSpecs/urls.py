@@ -32,6 +32,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     path('dashboard/', WebApp.views.dashboard, name='dashboard'),
     path('aboutus/', WebApp.views.aboutUs, name='aboutUs'),
+    path('stores/', WebApp.views.Stores, name='Stores'),
     path('legalresources/', WebApp.views.LegalResources, name='LegalResources'),
     url(r'^dashboard/results/$', WebApp.views.search_list, name='search'),
     url(r'^home/results/$', WebApp.views.CustomerSearch_list, name='customerSearch'),
@@ -39,7 +40,8 @@ urlpatterns = [
     path('rentaltrends/', DataRepresent.views.rentaltrends, name='rentaltrends'),
     path('storetrends/', DataRepresent.views.storetrends, name='storetrends'),
     path('vehiclerecommendation/', WebApp.views.vehicleRecommendation, name='vehiclerecommendation'),
-    path('vehiclerecommendationresults/', WebApp.views.vehicleRecommendationResult, name='vehiclerecommendationresults')
-
-
+    path('customerdetails/', WebApp.views.customerdetails_list, name='customerdetails'),
+    path('vehiclerecommendationresults/', WebApp.views.vehicleRecommendationResult, name='vehiclerecommendationresults'),
+    url(r'^stores/?id=[0-9]+/', WebApp.views.storeDetails, name='storedetails'),
+    url(r'^stores/storesid=[0-9]+/rentalhistory/', WebApp.views.rentalHistory, name='rentalhistory')
 ]

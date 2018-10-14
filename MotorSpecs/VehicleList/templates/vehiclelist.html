@@ -2,7 +2,7 @@
 
 {% block navbuttons %}
         <li><a href="/home/">Home</a></li>
-        <li><a href="#">Stores</a></li>
+        <li><a href="/stores/">Stores</a></li>
         <li class="active"><a href="/vehiclelist/">View Cars</a></li>
         <li><a href="/aboutus/">About Us</a></li>
 		<li><a href="/legalresources/">Legal Resources</a></li>
@@ -13,32 +13,33 @@
 
 
 {% block content %}
-	    <h1>Vehicles</h1>
-            {% for car in car_list %}
- 		<div class="panel panel-default">
+	    <h1 align="center">Vehicles</h1>
+        {% for car in car_list %}
+ 		<div class="panel panel-default" align="center">
   			<div class="panel-heading">
-   				 <h3 class="panel-title">{{ car.carMakeName }}
-                			{{ car.carModel}}
-               				{{ car.carSeries}}
-                			{{ car.carSeriesYear }}</h3>
+   				 <h3 class="panel-title">
+					{{ car.carMakeName }}
+                	{{ car.carModel}}
+               		{{ car.carSeries}}
+                	{{ car.carSeriesYear }}</h3>
   			</div>
   			<div class="panel-body">
-  	  			{{ car.carID}}
-                		{{ car.carPriceNew }}
-                		{{ car.carEngineSize }}
-                		{{ car.carFuelSystem }}
-                		{{ car.carTankCapacity }}
-                		{{ car.carPower }}
-                		{{ car.carSeatingCapacity }}
-                		{{ car.carStandardTransmission }}
-                		{{ car.carBodyType }}
-                		{{ car.carDrive }}
-                		{{ car.carWheelbase }}
+				{% load static %}
+				<img src="{% static '/'|add:car.carMakeName|add:car.carModel|add:'.png' %}" width="400" height="250" style="float:left;">
+  	  			Car ID: {{ car.carID}} <br>
+                Price: {{ car.carPriceNew }} <br>
+                Engine Size: {{ car.carEngineSize }} <br>
+                Fuel System: {{ car.carFuelSystem }} <br>
+                Tank Capacity: {{ car.carTankCapacity }} <br>
+                Power: {{ car.carPower }} <br>
+                Seating Capacity: {{ car.carSeatingCapacity }} <br>
+                Transmssion: {{ car.carStandardTransmission }} <br>
+                Body Type: {{ car.carBodyType }} <br>
+                Drive: {{ car.carDrive }} <br>
+                Wheel Base: {{ car.carWheelbase }}
   			</div>
 		</div>
-                
-            
-            {% endfor %}
+		{% endfor %}
 
 
 {% endblock content %}
