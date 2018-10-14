@@ -29,11 +29,30 @@
     </ul>
     <br>
 
+    {% if user.is_authenticated %}
     <a href="{% url 'rentalhistory' %}?id={{ storeObj.storeID }}" class="list-group-item">View Rental History</a>
-
+    {% endif %}
+    
     <br>
 
     <div style="width: 100%; height: 480px" id="mapContainer"></div>
+    {% load define_action %}
+    {% if storeObj.storeStateName == "New South Wales" %}
+        {% define 146.92 as lng %}
+        {% define -31.25 as lat %}
+        {% elif storeObj.storeStateName == "Queensland" %}
+        {% define 142.70 as lng %}
+        {% define -20.91 as lat %}
+        {% elif storeObj.storeStateName == "South Australia" %}
+        {% define 136.20 as lng %}
+        {% define -30.00 as lat %}
+        {% elif storeObj.storeStateName == "Tasmania" %}
+        {% define 145.97 as lng %}
+        {% define -41.45 as lat %}
+        {% elif storeObj.storeStateName == "Victoria" %}
+        {% define 144.78 as lng %}
+        {% define -37.47 as lat %}
+    {% endif %}
   <script>
     // Initialize the platform object:
     var platform = new H.service.Platform({
@@ -50,7 +69,7 @@
     maptypes.normal.map,
     {
       zoom: 7,
-      center: { lng: 146.92, lat: -31.25 }
+      center: { lng: {{ lng }}, lat: {{ lat }} }
     });
   </script>
 
