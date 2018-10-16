@@ -13,10 +13,31 @@
 
 {% block content %}
 	<div align="center">
-        <h2>Welcome to the Staff Dashboard, {{ currentUser.userName }}!</h2><br>
+        <h2>Welcome to the Employee Dashboard, {{ currentUser.userName }}!</h2><br>
+
+        <style>
+            .round {
+                width: 50%;
+                border-radius: 13px;
+                border: 1px #000 solid;
+                padding: 5px 5px 5px 25px;
+                top: 0;
+                left: 0;
+                z-index: 5;
+            }
+            .corner {
+                top: 3px;
+                left: 5px;
+                height: 30px;
+                width: 80px;
+                z-index: 10;
+                border-radius: 10px;
+            }
+        </style>
+
 		<form method="GET" action="{% url 'search' %}" style="margin: 0">
-				<b>Search:&emsp;</b><input  id="search_box" type="search" name="search_box"  placeholder="Search..." >
-				<button id="search_submit" type="submit" >Submit</button>
+				<b>Employee Search:&emsp;</b><input  id="search_box" type="search" name="search_box"  placeholder="Search..." class="round" >
+				<button id="search_submit" type="submit" class="corner" >Submit</button>
 		</form><br>
         <h3>Quick Links</h3>
 		<div class="list-group">
