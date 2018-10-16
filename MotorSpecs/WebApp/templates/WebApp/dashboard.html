@@ -13,11 +13,12 @@
 
 {% block content %}
 	<div align="center">
-		<h2>Dashboard</h2>
+        <h2>Welcome to the Staff Dashboard, {{ currentUser.userName }}!</h2><br>
 		<form method="GET" action="{% url 'search' %}" style="margin: 0">
-				<input  id="search_box" type="search" name="search_box"  placeholder="Search..." >
+				<b>Search:&emsp;</b><input  id="search_box" type="search" name="search_box"  placeholder="Search..." >
 				<button id="search_submit" type="submit" >Submit</button>
-		</form>
+		</form><br>
+        <h3>Quick Links</h3>
 		<div class="list-group">
 				<a href="/rentaltrends/" class="list-group-item">View Rental Trends</a>
 				<a href="/storetrends/" class="list-group-item">View Store Trends</a>
