@@ -4,19 +4,17 @@ from django.contrib.auth.decorators import login_required
 from django.template import loader
 from django.db.models import Q
 from index.models import VehicleList, CustomerDetails, StoreDetail, RentalHistory, User
+from django.contrib.auth.models import User
 
 # Create your views here.
 @login_required
 def dashboard(request):
     assert isinstance(request, HttpRequest)
-    userList = User.objects.all()
-    currentUser = request.user.id
-
-    user = userList[currentUser]
+    currentUser = request.user
 
     template = loader.get_template('WebApp/dashboard.html')
     context = {
-        'currentUser': user
+        'currentUser': currentUser
     }
     return HttpResponse(template.render(context, request))
     #return render(request, 'WebApp/dashboard.html')
