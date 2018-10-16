@@ -15,19 +15,23 @@
 
 
 {% block content %}
-    <br>
+  <img src="https://i.postimg.cc/6q2k0vLz/Logo.png" style="float:center; alt="MotorSpecs Logo" width="200" height="180">
+  
+  <p style="border-style:inset;" style="border-width:15px;"> Our nation-wide offices feature a wide range of vehicles available for immediate hire. Vehicles hired at any of our office locations are comprehensively insured, and our top-notch service provision aims to protect the right of our renters under the Australian Consumer Law (ACL).  
+
     <h1>Our Stores</h1><br>
     {% for store in storeList %}
         <a href="{% url 'storedetails' %}?id={{ store.storeID }}" class="list-group-item" target="_self">{{ store.storeName }}</a>
     {% endfor %}
 
-  <img src="https://i.postimg.cc/6q2k0vLz/Logo.png" style="float:center; alt="MotorSpecs Logo" width="200" height="180">
-  
-  <p style="border-style:inset;" style="border-width:15px;"> Our nation-wide offices feature a wide range of vehicles available for immediate hire. Vehicles hired at any of our office locations are comprehensively insured, and our top-notch service provision aims to protect the right of our renters under the Australian Consumer Law (ACL).  
-  
+    <br>
+
   <p style="border-style: inset;" style="border-width: 15px;" > Note: MotorSpecs has not whatsoever, been found in breach of any legal Act under the Australian Competition and Consumer Commission (ACCC). This validates our quality leasing/rental services. We shall be looking forward to your patronage at our various pickup locations. <strong> Kindly utilise the maps below for immediate guidance to our business locations</strong>
 
+    <br>
 
+    <h1>General Locations</h1>
+<br>
  
  
  <table style="text-align:center;">
