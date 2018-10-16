@@ -12,15 +12,37 @@
 {% endblock navbuttons %}
 
 {% block content %}
+    <style>
+        .round {
+            width: 35%;
+            border-radius: 13px;
+            border: 1px #000 solid;
+            padding: 5px 5px 5px 25px;
+            margin: 3px;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            border-color: #e0e1e2;
+        }
+        .corner {
+            top: 3px;
+            left: 5px;
+            height: 30px;
+            width: 80px;
+            z-index: 10;
+            border-radius: 10px;
+        }
+    </style>
+
     <h1 align="center">Recommend a Vehicle </h1>
     <form method="GET" action="{% url 'vehiclerecommendationresults' %}" style="margin: 0">
-    	<b>Car Type: </b>&emsp;<input  id="car_box" type="text" name="car_box"  placeholder="Car Type..." ><br>
-        <b>Car Transmission: </b>&emsp;<input  id="transmission_box" type="text" name="transmission_box"  placeholder="Transmission Type..." ><br>
-        <b>Car Engine Type: </b>&emsp;<input  id="engine_box" type="text" name="engine_box"  placeholder="Engine Type..." ><br>
-        <b>Car Fuel System: </b>&emsp;<input  id="fuel_box" type="text" name="fuel_box"  placeholder="Fuel Type..." ><br>
-        <b>Car Series Year: </b>&emsp;<input  id="year_box" type="text" name="year_box"  placeholder="Year..." ><br>
-        <b>Car Model: </b>&emsp;<input  id="model_box" type="text" name="model_box"  placeholder="Model..." ><br>
-    	<button id="recommend_submit" type="submit" >Submit</button>
+    	<b>Car Type: </b>&emsp;<input  id="car_box" type="text" name="car_box"  placeholder="Car Type..." class="round"><br>
+        <b>Car Transmission: </b>&emsp;<input  id="transmission_box" type="text" name="transmission_box"  placeholder="Transmission Type..." class="round"><br>
+        <b>Car Engine Type: </b>&emsp;<input  id="engine_box" type="text" name="engine_box"  placeholder="Engine Type..." class="round"><br>
+        <b>Car Fuel System: </b>&emsp;<input  id="fuel_box" type="text" name="fuel_box"  placeholder="Fuel Type..." class="round"><br>
+        <b>Car Series Year: </b>&emsp;<input  id="year_box" type="text" name="year_box"  placeholder="Year..." class="round"><br>
+        <b>Car Model: </b>&emsp;<input  id="model_box" type="text" name="model_box"  placeholder="Model..." class="round"><br>
+    	<br><button id="recommend_submit" type="submit" class="corner">Submit</button>
 	</form>
 
 {% endblock content %}
