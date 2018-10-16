@@ -15,7 +15,8 @@
 
 
 {% block content %}
-    <br><br>
+    <br>
+    <h1>Our Stores</h1><br>
     {% for store in storeList %}
         <a href="{% url 'storedetails' %}?id={{ store.storeID }}" class="list-group-item" target="_self">{{ store.storeName }}</a>
     {% endfor %}
