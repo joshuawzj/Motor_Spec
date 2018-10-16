@@ -1,13 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Vehicle Recommendation Results Page</title>
-</head>
-<body>
+{% extends "WebApp/base.html" %}
+
+{% block navbuttons %}
+        <li><a href="/home/">Home</a></li>
+        <li><a href="/stores/">Stores</a></li>
+        <li><a href="/vehiclelist/">View Cars</a></li>
+        <li><a href="/aboutus/">About Us</a></li>
+		<li><a href="/legalresources/">Legal Resources</a></li>
+	    {% if user.is_authenticated %}
+            <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
+      	{% endif %}
+{% endblock navbuttons %}
+
+{% block content %}
 <style>
     ul{
         list-style-type: none;
+        display:table;
+        margin:auto;
+        padding:0;
     }
 </style>
 
@@ -35,5 +45,4 @@
 
 <p><a href="{{request.META.HTTP_REFERER}}">Back</a></p>
 
-</body>
-</html>
+{% endblock content %}
