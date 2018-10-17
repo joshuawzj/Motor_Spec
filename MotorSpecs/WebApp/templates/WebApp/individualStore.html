@@ -1,28 +1,32 @@
 {% extends "WebApp/base.html" %}
 
 {% block navbuttons %}
+    <!-- Javascript for the HERE Maps API -->
     <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"
     type="text/javascript" charset="utf-8"></script>
     <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
     type="text/javascript" charset="utf-8"></script>
 
-        <li><a href="/home/">Home</a></li>
-        <li><a href="/stores/">Stores</a></li>
-        <li><a href="/vehiclelist/">View Cars</a></li>
-        <li><a href="/aboutus/">About Us</a></li>
-		<li><a href="/legalresources/">Legal Resources</a></li>
-	{% if user.is_authenticated %}
-        <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
-      	{% endif %}
+    <!-- Top Navigation Bar -->
+    <li><a href="/home/">Home</a></li>
+    <li><a href="/stores/">Stores</a></li>
+    <li><a href="/vehiclelist/">View Cars</a></li>
+    <li><a href="/aboutus/">About Us</a></li>
+    <li><a href="/legalresources/">Legal Resources</a></li>
+    {% if user.is_authenticated %}
+        <li><a href="/dashboard/">Employee Dashboard</a></li> <!-- Show Dashboard for Authorised Users Only -->
+    {% endif %}
 {% endblock navbuttons %}
 
 {% block content %}
+    <!-- Styling for the unordered list bullet points -->
     <style>
     ul{
         list-style-type: none;
     }
     </style>
 
+    <!-- Store Details -->
     <h1 align="center">{{ storeObj.storeName }} (ID: {{ storeObj.storeID }})</h1>
     <br>
     <ul>
@@ -35,17 +39,21 @@
     </ul>
     <br>
 
+    <!-- Only displays the Rental History Link for authorised users only -->
     {% if user.is_authenticated %}
     <a href="{% url 'rentalhistory' %}?id={{ storeObj.storeID }}" class="list-group-item">View Rental History</a>
     {% endif %}
-    
     <br>
+
+    <!-- In case of NULL value for the Store's State Name -->
     {% if storeObj.storeStateName == "NULL" %}
         <p><i>Sorry. No map is available for this store.</i></p>
     {% endif %}
 
     <div style="width: 100%; height: 480px" id="mapContainer"></div>
+    <!-- define_action allows to store values in Python variables for future use -->
     {% load define_action %}
+    <!-- Prepares the coordinates for states within Australia -->
     {% if storeObj.storeStateName == "New South Wales" %}
         {% define 146.92 as lng %}
         {% define -31.25 as lat %}
@@ -65,7 +73,9 @@
         {% define 121.63 as lng %}
         {% define -27.67 as lat %}
     {% endif %}
-  <script>
+
+    <!-- Javascript for the HERE Maps API -->
+    <script>
     // Initialize the platform object:
     var platform = new H.service.Platform({
     'app_id': 'dFEX7kteHMzcUb9u7iQd',
@@ -83,7 +93,6 @@
       zoom: 7,
       center: { lng: {{ lng }}, lat: {{ lat }} }
     });
-  </script>
-
+    </script>
 
 {% endblock content %}

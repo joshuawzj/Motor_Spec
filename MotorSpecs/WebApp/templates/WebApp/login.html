@@ -12,6 +12,26 @@
 {% endblock navbuttons %}
 
 {% block content %}
+<style>
+    .round {
+        width: 50%;
+        border-radius: 13px;
+        border: 1px #000 solid;
+        padding: 5px 5px 5px 25px;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        border-color: #898989;
+    }
+    .corner {
+        top: 3px;
+        left: 5px;
+        height: 30px;
+        width: 80px;
+        z-index: 10;
+        border-radius: 10px;
+    }
+</style>
 {% if user.is_authenticated %}
 
 {% else %}

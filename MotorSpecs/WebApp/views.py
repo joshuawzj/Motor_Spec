@@ -128,16 +128,25 @@ def vehicleRecommendation(request):
     assert isinstance(request, HttpRequest)
     return render(request, 'WebApp/vehicleRecommendation.html')
 
+# vehicleRecommendationResult() receives the user input for every car description. If an input exists, the vehicle
+# database is filtered to produce a QuerySet of the given vehicles with a description which matches the user input.
+# If an input is non-existent, the field is ignored and other fields are used to filter the database. If all fields
+# are empty, every field is ignored, resulting in no results.
+# The function also consists of a counter, counting the number of final results, which is passed on as search_count
+# in the variable "context".
+# Finally, the template is loaded and recommendationResults.html is loaded, using "context" to pass variables to the
+# template.
 def vehicleRecommendationResult(request):
     results = None
 
-    carType = request.GET.get('car_box')
-    transmissionType = request.GET.get('transmission_box')
-    engineSize = request.GET.get('engine_box')
-    fuelType = request.GET.get('fuel_box')
-    year = request.GET.get('year_box')
-    model = request.GET.get('model_box')
+    carType = request.GET.get('car_box')                        # Car Type
+    transmissionType = request.GET.get('transmission_box')      # Car Transmission Type
+    engineSize = request.GET.get('engine_box')                  # Car Engine Size
+    fuelType = request.GET.get('fuel_box')                      # Car Fuel Type
+    year = request.GET.get('year_box')                          # Car Series Year
+    model = request.GET.get('model_box')                        # Car Model
 
+    # Checks if each field contains a user input
     if not carType:
         carType = True
     if not transmissionType:
@@ -151,7 +160,7 @@ def vehicleRecommendationResult(request):
     if not model:
         model = True
 
-
+    # Filters the vehicle database using the user input
     results = VehicleList.objects.filter(
         Q(carBodyType__contains=carType) |
         Q(carStandardTransmission__contains=transmissionType) |
@@ -161,11 +170,13 @@ def vehicleRecommendationResult(request):
         Q(carModel__contains=model)
     )
 
+    # Checks if results exist and counts the results
     if results != None:
         count = results.__len__()
     else:
         count = 0
 
+    # Loads HTML into template and stores variables in context to prepare loading the page
     template = loader.get_template('WebApp/recommendationResults.html')
     context = {
         'results': results,
@@ -173,11 +184,8 @@ def vehicleRecommendationResult(request):
     }
     return HttpResponse(template.render(context, request))
 
-
-# def customerdetails(request):
-#     assert isinstance(request, HttpRequest)
-#     return render(request, 'WebApp/customerdetails.html')
-
+# customerdetails_list() retrieves all customer details from the database and stores them in a QuerySet. The
+# customerdetails.html page is loaded with the QuerySet loaded as a variable in context
 def customerdetails_list(request):
     customerList = CustomerDetails.objects.all
 
@@ -187,6 +195,7 @@ def customerdetails_list(request):
     }
     return HttpResponse(template.render(context, request))
 
+# Stores the Store ID of the clicked Store Link in Stores.html for future use
 def storeDetails(request):
     storeid = request.GET.get('id')
     store = StoreDetail.objects.get(storeID=storeid)
@@ -196,6 +205,7 @@ def storeDetails(request):
     }
     return HttpResponse(template.render(context, request))
 
+# Filters the Rental History database using the StoreID as a filter.
 def rentalHistory(request):
     storeid = request.GET.get('id')
     rentalList = RentalHistory.objects.filter(

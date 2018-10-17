@@ -1,17 +1,19 @@
 {% extends "WebApp/base.html" %}
 
 {% block navbuttons %}
-        <li><a href="/home/">Home</a></li>
-        <li><a href="/stores/">Stores</a></li>
-        <li><a href="/vehiclelist/">View Cars</a></li>
-        <li><a href="/aboutus/">About Us</a></li>
-		<li><a href="/legalresources/">Legal Resources</a></li>
+    <!-- Top Navigation Bar -->
+    <li><a href="/home/">Home</a></li>
+    <li><a href="/stores/">Stores</a></li>
+    <li><a href="/vehiclelist/">View Cars</a></li>
+    <li><a href="/aboutus/">About Us</a></li>
+    <li><a href="/legalresources/">Legal Resources</a></li>
 	{% if user.is_authenticated %}
-        <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
-      	{% endif %}
+        <li><a href="/dashboard/">Employee Dashboard</a></li> <!-- Show Dashboard for Authorised Users Only -->
+    {% endif %}
 {% endblock navbuttons %}
 
 {% block content %}
+    <!-- Styling for Text Inputs and Submit Button -->
     <style>
         .round {
             width: 35%;
@@ -35,6 +37,8 @@
     </style>
 
     <h1 align="center">Recommend a Vehicle </h1>
+
+    <!-- Form for Vehicle Recommendation Feature -->
     <form method="GET" action="{% url 'vehiclerecommendationresults' %}" style="margin: 0">
     	<b>Car Type: </b>&emsp;<input  id="car_box" type="text" name="car_box"  placeholder="Car Type..." class="round"><br>
         <b>Car Transmission: </b>&emsp;<input  id="transmission_box" type="text" name="transmission_box"  placeholder="Transmission Type..." class="round"><br>

@@ -19,6 +19,7 @@
   
   <p style="border-style:inset;" style="border-width:15px;"> Our nation-wide offices feature a wide range of vehicles available for immediate hire. Vehicles hired at any of our office locations are comprehensively insured, and our top-notch service provision aims to protect the right of our renters under the Australian Consumer Law (ACL).  
 
+    <!-- Prints out multiple hyperlinks to individualStore.html for all stores in the database -->
     <h1>Our Stores</h1><br>
     {% for store in storeList %}
         <a href="{% url 'storedetails' %}?id={{ store.storeID }}" class="list-group-item" target="_self">{{ store.storeName }}</a>

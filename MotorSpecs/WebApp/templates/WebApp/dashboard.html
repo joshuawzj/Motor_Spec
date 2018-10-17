@@ -24,6 +24,7 @@
                 top: 0;
                 left: 0;
                 z-index: 5;
+                border-color: #898989;
             }
             .corner {
                 top: 3px;
@@ -37,7 +38,7 @@
 
 		<form method="GET" action="{% url 'search' %}" style="margin: 0">
 				<b>Employee Search:&emsp;</b><input  id="search_box" type="search" name="search_box"  placeholder="Search..." class="round" >
-				<button id="search_submit" type="submit" class="corner" >Submit</button>
+				&emsp;<button id="search_submit" type="submit" class="corner" >Submit</button>
 		</form><br>
         <h3>Quick Links</h3>
 		<div class="list-group">

@@ -1,48 +1,51 @@
 {% extends "WebApp/base.html" %}
 
 {% block navbuttons %}
-        <li><a href="/home/">Home</a></li>
-        <li><a href="/stores/">Stores</a></li>
-        <li><a href="/vehiclelist/">View Cars</a></li>
-        <li><a href="/aboutus/">About Us</a></li>
-		<li><a href="/legalresources/">Legal Resources</a></li>
-	    {% if user.is_authenticated %}
-            <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
-      	{% endif %}
+    <!-- Top Navigation Bar -->
+    <li><a href="/home/">Home</a></li>
+    <li><a href="/stores/">Stores</a></li>
+    <li><a href="/vehiclelist/">View Cars</a></li>
+    <li><a href="/aboutus/">About Us</a></li>
+    <li><a href="/legalresources/">Legal Resources</a></li>
+    {% if user.is_authenticated %}
+        <li><a href="/dashboard/">Employee Dashboard</a></li> <!-- Show Dashboard for Authorised Users Only -->
+    {% endif %}
 {% endblock navbuttons %}
 
 {% block content %}
-<style>
-    ul{
-        list-style-type: none;
-        display:table;
-        margin:auto;
-        padding:0;
-    }
-</style>
+    <!-- Styling for Unordered List Bullet Points -->
+    <style>
+        ul{
+            list-style-type: none;
+            display:table;
+            margin:auto;
+            padding:0;
+        }
+    </style>
 
-<h1>Vehicle  Results</h1>
-<p><i>{{ search_count }} results available.</i></p>
-<ul>
-    {% if results %}
-        {%  for item in results %}
-            <li><b>Car {{ item.carID }}</b></li>
-            <li><b>Car Body Type: </b> {{ item.carBodyType }}</li>
-            <li><b>Car Standard Transmission: </b> {{ item.carStandardTransmission }}</li>
-            <li><b>Car Engine Size: </b> {{ item.carEngineSize }}</li>
-            <li><b>Car Fuel System: </b> {{ item.carFuelSystem }}</li>
-            <li><b>Car Series Year: </b> {{ item.carSeriesYear }}</li>
-            <li><b>Car Model: </b> {{ item.carModel }}</li>
-            <br>
-        {% endfor %}
-    {% endif %}
+    <h1>Vehicle  Results</h1>
+    <p><i>{{ search_count }} results available.</i></p> <!-- Number of results found -->
+    <ul>
+    <!-- Displays Vehicle Descriptions if they exist. -->
+        {% if results %}
+            {%  for item in results %}
+                <li><b>Car {{ item.carID }}</b></li>
+                <li><b>Car Body Type: </b> {{ item.carBodyType }}</li>
+                <li><b>Car Standard Transmission: </b> {{ item.carStandardTransmission }}</li>
+                <li><b>Car Engine Size: </b> {{ item.carEngineSize }}</li>
+                <li><b>Car Fuel System: </b> {{ item.carFuelSystem }}</li>
+                <li><b>Car Series Year: </b> {{ item.carSeriesYear }}</li>
+                <li><b>Car Model: </b> {{ item.carModel }}</li>
+                <br>
+            {% endfor %}
+        {% endif %}
 
-    {% if results ==  None %}
-        <li><i>Sorry. There are no available results.</i></li>
-    {% endif %}
+        {% if results ==  None %}
+            <li><i>Sorry. There are no available results.</i></li>
+        {% endif %}
+    </ul>
 
-</ul>
-
-<p><a href="{{request.META.HTTP_REFERER}}">Back</a></p>
+    <!-- "Back" link to return to the previous page -->
+    <p><a href="{{request.META.HTTP_REFERER}}">Back</a></p>
 
 {% endblock content %}
