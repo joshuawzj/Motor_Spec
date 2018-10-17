@@ -13,6 +13,7 @@
 
 {% block content %}
     <h1>Customer Details</h1>
+    <!-- HTML table for containing customer details -->
     <table style="width: 100%" border="1px gray">
     <tr bgcolor="#ECF0F1">
         <th>Customer ID</th>
@@ -23,6 +24,8 @@
         <th>Customer Gender</th>
         <th>Customer Occupation</th>
     </tr>
+
+    <!-- Loops the customer details QuerySet and inserts unique customer details in each row of the table -->
     {% for customer in customer_list %}
         <tr bgcolor="#FDFEFE">
         <th>{{ customer.customerID }}</th>

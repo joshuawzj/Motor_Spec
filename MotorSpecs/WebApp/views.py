@@ -17,7 +17,6 @@ def dashboard(request):
         'currentUser': currentUser
     }
     return HttpResponse(template.render(context, request))
-    #return render(request, 'WebApp/dashboard.html')
 
 def home(request):
     assert isinstance(request, HttpRequest)
