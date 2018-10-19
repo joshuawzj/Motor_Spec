@@ -23,6 +23,12 @@
                		{{ car.carSeries}}
                 	{{ car.carSeriesYear }}</h3>
   			</div>
+
+
+
+
+            </div>
+
   			<div class="panel-body">
 				{% load static %}
 				<img src="{% static '/'|add:car.carID|add:'.png' %}" onerror="this.src='{% static '/Placeholder.png' %}'" alt="" width="400" height="250" style="float:left;">
@@ -43,3 +49,7 @@
 
 
 {% endblock content %}
+
+
+
+

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from index.models import VehicleList
-from django.core.paginator import Paginator, Emptypage, PageNotAnInteger
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # from .models import VehicleList
 import json
@@ -35,11 +35,11 @@ def index(request):
     page = request.GET.get('page')
 
     try:
-        cars = paginator.page(page)
+        car_list = paginator.page(page)
     except PageNotAnInteger:
-        cars = paginator.page(1)
+        car_list = paginator.page(1)
     except Emptypage:
-        cars = paginator.page(paginator.num_pages)
+        car_list = paginator.page(paginator.num_pages)
 
     return render(request, 'vehiclelist.html',{'car_list':res})
 
