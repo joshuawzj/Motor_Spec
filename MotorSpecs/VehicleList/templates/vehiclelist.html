@@ -11,9 +11,9 @@
       	{% endif %}
 {% endblock navbuttons %}
 
-
 {% block content %}
-	    <h1 align="center">Vehicles</h1>
+
+    <h1 align="center">Vehicles</h1>
         {% for car in car_list %}
  		<div class="panel panel-default" align="center">
   			<div class="panel-heading">
@@ -44,11 +44,32 @@
                 Drive: {{ car.carDrive }} <br>
                 Wheel Base: {{ car.carWheelbase }}
   			</div>
-		</div>
 		{% endfor %}
 
+    <div>
+    <ul class="pagination">
+    {% if car_list.has_previous %}
 
-{% endblock content %}
+
+
+        <li><a href="/vehiclelist/?page={{ car_list.previous_page_number }}">Previous Page</a> </li>
+
+        {% endif %}
+
+        {% for num in car_list.paginator.page_range %}
+        <li><a href="/vehiclelist/?page={{ num }}">{{ num }}</a> </li>
+        {% endfor %}
+    {% if cars.has_next %}
+    <li><a href="/vehiclelist/?page={{ car_list.next_page_number }}">Next Page</a> </li>
+    {% endif %}
+    </ul>
+    </div>
+
+{% endblock content%}
+
+
+
+
 
 
 

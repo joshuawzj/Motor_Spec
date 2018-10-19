@@ -31,15 +31,16 @@ def index(request):
         print(json)
         res.append(json)
 
-    paginator = Paginator(cars, 20)
-    page = request.GET.get('page')
-
+    paginator = Paginator(res, 15)
+    page = request.GET.get('page','1')
     try:
-        car_list = paginator.page(page)
+        res = paginator.page(page)
     except PageNotAnInteger:
-        car_list = paginator.page(1)
-    except Emptypage:
-        car_list = paginator.page(paginator.num_pages)
+        res = paginator.page(1)
+    except EmptyPage:
+        res = paginator.page(paginator.num_pages)
+
+
 
     return render(request, 'vehiclelist.html',{'car_list':res})
 
