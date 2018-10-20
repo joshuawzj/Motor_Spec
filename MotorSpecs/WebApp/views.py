@@ -6,6 +6,7 @@ from django.db.models import Q
 from index.models import VehicleList, CustomerDetails, StoreDetail, RentalHistory, User
 from django.contrib.auth.models import User
 from .forms import RegisterForm
+from .models import User
 
 # Create your views here.
 @login_required
@@ -220,7 +221,7 @@ def rentalHistory(request):
 def register(request):
     if request.session.get('is_login', None):
         # if user has login, so can not register
-        return redirect("/index/")
+        return redirect("/home/")
     if request.method == "POST":
         register_form = RegisterForm(request.POST)
         message = "Please check your details"
@@ -232,16 +233,16 @@ def register(request):
             sex = register_form.cleaned_data['sex']
             if password1 != password2:  # if password entered is different
                 message = "Password do not match"
-                return render(request, 'login/register.html', locals())
+                return render(request, 'WebApp/register.html', locals())
             else:
                 same_name_user = models.User.objects.filter(name=username)
                 if same_name_user:  # user name should be unique
                     message = 'This user name is not available, please enter a new one!'
-                    return render(request, 'login/register.html', locals())
+                    return render(request, 'WebApp/register.html', locals())
                 same_email_user = models.User.objects.filter(email=email)
                 if same_email_user:  # email should be unique
                     message = 'This email is not available, please enter a new one!'
-                    return render(request, 'login/register.html', locals())
+                    return render(request, 'WebApp/register.html', locals())
 
                 # if all the information is corrected
 
@@ -253,4 +254,4 @@ def register(request):
                 new_user.save()
                 return redirect('/login/')  # go to login page
     register_form = RegisterForm()
-    return render(request, 'WebApp/register.html')
+    return render(request, 'WebApp/register.html',locals())
