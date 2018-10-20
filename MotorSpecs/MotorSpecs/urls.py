@@ -43,5 +43,6 @@ urlpatterns = [
     path('customerdetails/', WebApp.views.customerdetails_list, name='customerdetails'),
     path('vehiclerecommendationresults/', WebApp.views.vehicleRecommendationResult, name='vehiclerecommendationresults'),
     url(r'^stores/?id=[0-9]+/', WebApp.views.storeDetails, name='storedetails'),
-    url(r'^stores/storesid=[0-9]+/rentalhistory/', WebApp.views.rentalHistory, name='rentalhistory')
+    url(r'^stores/storesid=[0-9]+/rentalhistory/', WebApp.views.rentalHistory, name='rentalhistory'),
+    path('register/',WebApp.views.register,name='register'),
 ]

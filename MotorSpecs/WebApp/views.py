@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.template import loader
 from django.db.models import Q
 from index.models import VehicleList, CustomerDetails, StoreDetail, RentalHistory, User
 from django.contrib.auth.models import User
+from .forms import RegisterForm
 
 # Create your views here.
 @login_required
@@ -215,3 +216,41 @@ def rentalHistory(request):
         'rental_list': rentalList
     }
     return HttpResponse(template.render(context, request))
+
+def register(request):
+    if request.session.get('is_login', None):
+        # if user has login, so can not register
+        return redirect("/index/")
+    if request.method == "POST":
+        register_form = RegisterForm(request.POST)
+        message = "Please check your details"
+        if register_form.is_valid():  # get data
+            username = register_form.cleaned_data['username']
+            password1 = register_form.cleaned_data['password1']
+            password2 = register_form.cleaned_data['password2']
+            email = register_form.cleaned_data['email']
+            sex = register_form.cleaned_data['sex']
+            if password1 != password2:  # if password entered is different
+                message = "Password do not match"
+                return render(request, 'login/register.html', locals())
+            else:
+                same_name_user = models.User.objects.filter(name=username)
+                if same_name_user:  # user name should be unique
+                    message = 'This user name is not available, please enter a new one!'
+                    return render(request, 'login/register.html', locals())
+                same_email_user = models.User.objects.filter(email=email)
+                if same_email_user:  # email should be unique
+                    message = 'This email is not available, please enter a new one!'
+                    return render(request, 'login/register.html', locals())
+
+                # if all the information is corrected
+
+                new_user = models.User.objects.create()
+                new_user.name = username
+                new_user.password = password1
+                new_user.email = email
+                new_user.sex = sex
+                new_user.save()
+                return redirect('/login/')  # go to login page
+    register_form = RegisterForm()
+    return render(request, 'WebApp/register.html')
