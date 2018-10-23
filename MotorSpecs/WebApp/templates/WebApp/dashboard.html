@@ -36,11 +36,13 @@
                 border-radius: 10px;
             }
         </style>
-
+		
+		<!-- search form for employees -->
 		<form method="GET" action="{% url 'search' %}" style="margin: 0">
 				<b>Employee Search:&emsp;</b><input  id="search_box" type="search" name="search_box"  placeholder="Search..." class="round" >
 				&emsp;<button id="search_submit" type="submit" class="corner" >Submit</button>
 		</form><br>
+		<!-- Employee quick links -->
         <h3>Quick Links</h3>
 		<div class="list-group">
             <a href="/vehiclerecommendation/" class="list-group-item">Recommend a Vehicle</a>
