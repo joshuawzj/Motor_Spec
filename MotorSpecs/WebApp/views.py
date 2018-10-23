@@ -262,6 +262,6 @@ def register(request):
                 new_user.email = email
                 new_user.sex = sex
                 new_user.save()
-                return redirect('WebApp/login/')  # go to login page
+                return redirect('WebApp/login.html')  # go to login page
     register_form = RegisterForm()
     return render(request, 'WebApp/register.html',locals())
