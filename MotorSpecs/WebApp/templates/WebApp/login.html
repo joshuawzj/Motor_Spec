@@ -6,10 +6,10 @@
         <li><a href="/vehiclelist/">View Cars</a></li>
         <li><a href="/aboutus/">About Us</a></li>
         <li><a href="/faqs/">FAQs</a></li>
-	<li><a href="/contact/">Contact</a></li>
+		<li><a href="/contact/">Contact</a></li>
 	{% if user.is_authenticated %}
         <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
-      	{% endif %}
+    {% endif %}
 {% endblock navbuttons %}
 
 {% block content %}
@@ -34,9 +34,9 @@
     }
 </style>
 {% if user.is_authenticated %}
-<!-- do nothing -->
+	<!-- do nothing -->
 {% else %}
-<h1>Employee Login</h1>
+	<h1>Employee Login</h1>
 {% endif %}
 
 {% if form.errors %} <!-- if there were errors with the form -->
@@ -45,19 +45,19 @@
 
 {% if next %}
     {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
+		<p>Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
     {% else %}
-    <p>Please login to see this page.</p>
+		<p>Please login to see this page.</p>
     {% endif %}
 {% endif %}
 
 {% if user.is_authenticated %} <!-- if user is logged in as employee, tell them which account they are on -->
-<h1>You are logged in.</h1>
-<p>User: {{ user }}</p>
+	<h1>You are logged in.</h1>
+	<p>User: {{ user }}</p>
 
 {% else %} <!-- if they are not logged in, show the login form -->
-<form method="post" action="{% url 'login' %}">
+	<form method="post" action="{% url 'login' %}">
 {% csrf_token %}
 <table>
 <tr>
