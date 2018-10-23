@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class User(models.Model):
+class Users(models.Model):
 
     gender = (
         ('male', 'Male'),
@@ -10,7 +10,7 @@ class User(models.Model):
     )
     name = models.CharField(max_length=128, unique = True)
     password = models.CharField(max_length=50)
-    email = models.EmailField(unique = True)
+    email = models.EmailField(max_length = 254)
     sex = models.CharField(max_length = 32, choices = gender, default = 'Male')
     c_time = models.DateTimeField(auto_now_add = True)
     def __str__(self):

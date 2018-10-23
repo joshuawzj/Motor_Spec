@@ -6,7 +6,8 @@ from django.db.models import Q
 from index.models import VehicleList, CustomerDetails, StoreDetail, RentalHistory, User
 from django.contrib.auth.models import User
 from .forms import RegisterForm
-from .models import User
+from .models import Users
+from django.db import models
 
 # Create your views here.
 @login_required
@@ -235,18 +236,18 @@ def register(request):
                 message = "Password do not match"
                 return render(request, 'WebApp/register.html', locals())
             else:
-                same_name_user = models.User.objects.filter(name=username)
+                same_name_user = models.Users.objects.filter(name=username)
                 if same_name_user:  # user name should be unique
                     message = 'This user name is not available, please enter a new one!'
                     return render(request, 'WebApp/register.html', locals())
-                same_email_user = models.User.objects.filter(email=email)
+                same_email_user = models.Users.objects.filter(email=email)
                 if same_email_user:  # email should be unique
                     message = 'This email is not available, please enter a new one!'
                     return render(request, 'WebApp/register.html', locals())
 
                 # if all the information is corrected
 
-                new_user = models.User.objects.create()
+                new_user = models.Users.objects.create()
                 new_user.name = username
                 new_user.password = password1
                 new_user.email = email
