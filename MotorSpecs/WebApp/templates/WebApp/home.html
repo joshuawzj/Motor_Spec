@@ -1,12 +1,11 @@
 {% extends "WebApp/base.html" %}
 
 {% block navbuttons %}
-        <li class="active"><a href="/home/">Home</a></li>
-        <li><a href="/stores/">Stores</a></li>
-        <li><a href="/vehiclelist/">View Cars</a></li>
-        <li><a href="/aboutus/">About Us</a></li>
-	<li><a href="/legalresources/">Legal Resources</a></li>
-        <li><a href="/faqs/">FAQs</a></li>
+    <li class="active"><a href="/home/">Home</a></li>
+    <li><a href="/stores/">Stores</a></li>
+    <li><a href="/vehiclelist/">View Cars</a></li>
+    <li><a href="/aboutus/">About Us</a></li>
+    <li><a href="/faqs/">FAQs</a></li>
 	<li><a href="/contact/">Contact</a></li>
 	{% if user.is_authenticated %}
         <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
@@ -20,6 +19,7 @@
     <img src="https://i.postimg.cc/6q2k0vLz/Logo.png" style="float:center; alt="MotorSpecs Logo" width="200" height="180">
     <h3>Want Something? Use the Links Below!</h3>
   	<div class="list-group">
-            <a href="/vehiclerecommendation/" class="list-group-item">Recommend a Vehicle</a>
+        <a href="/vehiclerecommendation/" class="list-group-item">Recommend a Vehicle</a>
+        <a href="/legalresources/" class="list-group-item">Legal Resources</a>
   	</div>
 {% endblock content %}
