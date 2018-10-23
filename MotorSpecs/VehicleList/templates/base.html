@@ -28,6 +28,7 @@
 </head>
 <body>
 
+<!-- navbar containing navbuttons, search bar and login/logout buttons-->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -40,7 +41,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-      	{% block navbuttons %}
+      	{% block navbuttons %} <!-- block for navbuttons -->
 		{% endblock navbuttons %}
 	<form class="navbar-form navbar-left" role="search">
     		<div class="form-group">
@@ -50,6 +51,7 @@
 	</form>
       </ul>
       
+	  <!-- login/logout buttons -->
       <ul class="nav navbar-nav navbar-right">
         {% if user.is_authenticated %}
         <li><a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -61,10 +63,13 @@
     </div>
   </div>
 </nav>
+<!-- container for page content block -->
 <div class="container" align="center">
-	{% block content %} {% endblock %}
+	{% block content %} 
+	{% endblock %}
 </div>
 
+<!-- fixed footer at bottom of view -->
 <div class="navbar navbar-inverse navbar-fixed-bottom">
   <div class="container">
     <span class="navbar-text">

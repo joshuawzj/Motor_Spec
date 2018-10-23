@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block navbuttons %}
+{% block navbuttons %} <!-- block for navbuttons -->
         <li><a href="/home/">Home</a></li>
         <li><a href="/stores/">Stores</a></li>
         <li class="active"><a href="/vehiclelist/">View Cars</a></li>
@@ -13,8 +13,9 @@
       	{% endif %}
 {% endblock navbuttons %}
 
-{% block content %}
-
+{% block content %} <!-- blcok for page content -->
+	
+	<!-- for every car in the database, create a panel with heading, image and information -->
     <h1 align="center">Vehicles</h1>
         {% for car in car_list %}
  		<div class="panel panel-default" align="center">
@@ -47,8 +48,9 @@
                 Wheel Base: {{ car.carWheelbase }}
   			</div>
 		{% endfor %}
-
     <div>
+	
+	<!-- place cars on multiple pages so that they don't fill one entire page -->
     <ul class="pagination">
     {% if car_list.has_previous %}
 
