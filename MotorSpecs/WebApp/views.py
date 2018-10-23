@@ -32,6 +32,10 @@ def LegalResources(request):
     assert isinstance(request, HttpRequest)
     return render(request, 'WebApp/LegalResources.html')
 
+def faqs(request):
+    assert isinstance(request, HttpRequest)
+    return render(request, 'WebApp/faqs.html')
+
 def Stores(request):
     storeList = StoreDetail.objects.all
 
