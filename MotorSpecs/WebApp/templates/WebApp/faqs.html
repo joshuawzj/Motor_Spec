@@ -1,35 +1,49 @@
 {% extends "WebApp/base.html" %}
 
 {% block navbuttons %}
+
+<!-- Top Navigation Columns-->
+
         <li><a href="/home/">Home</a></li>
         <li><a href="/stores/">Stores</a></li>
         <li><a href="/vehiclelist/">View Cars</a></li>
         <li><a href="/aboutus/">About Us</a></li>
 		<li class="active"><a href="/faqs/">FAQs</a></li>
         <li><a href="/contact/">Contact</a></li>
+		
+		<!--show dashboard link for employees only-->
 	{% if user.is_authenticated %}
-        <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
+        <li><a href="/dashboard/">Employee Dashboard</a></li> 
+		
       	{% endif %}
 {% endblock navbuttons %}
 
 
 
-
+<--------- >
 {% block content %}
 
+<!-- hosted logo resource only-->
   <img src="https://i.postimg.cc/6q2k0vLz/Logo.png" style="float:center; alt="MotorSpecs Logo" width="200" height="180">
   
 
 <div class="container">
  
+<!-- Bootstrap dismissable alert -->
 
     <div class="alert alert-warning alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         This page features a wealth of information relating to <strong>MotorSpecs</strong>, our ToS and vehicle hire conditions. If however, you are unable to find an answer to your query, kindly utilise the details on the contact page to reach the team. 
     </div>
 
+	
+	
+	
     <br />
 
+	
+	<!-- Div 1 -->
+	
     <div class="panel-group" id="accordion">
         <div class="faqHeader">General questions</div>
         <div class="panel panel-default">
@@ -38,6 +52,9 @@
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">What is MotorSpecs?</a>
                 </h4>
             </div>
+			
+			
+	<!-- Div 2 -->
             <div id="collapseOne" class="panel-collapse collapse">
                 <div class="panel-body">
                     <strong>MotorSpecs</strong> is a vehicle hire company with multiple car rental locations at Brisbane, Melbourne, Sydney, Adelaide, and the Gold Coast. <strong>MotorSpecs</strong> offers a wide range of cars, 4WDs and minibuses as well as Australia’s largest fleet of truck and commercial vehicles that are distributed in
@@ -45,6 +62,9 @@ these locations for customers.
                 </div>
             </div>
         </div>
+		
+		
+	<!-- Div 3 -->		
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -54,9 +74,14 @@ these locations for customers.
             <div id="collapseTen" class="panel-collapse collapse">
                 <div class="panel-body">
                     Vehicles hired at any of our office locations are comprehensively insured, and our top-notch service provision aims to protect the right of our renters under the Australian Consumer Law (ACL).
-                </div>
+                </div>	
             </div>
         </div>
+		
+		
+		
+		
+	<!-- Div 4 -->
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -70,6 +95,12 @@ these locations for customers.
             </div>
         </div>
 
+		
+		
+		
+		
+		
+	<!-- Div 5 -->
         <div class="faqHeader">Vehicle Specific Questions </div>
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -83,6 +114,11 @@ these locations for customers.
                 </div>
             </div>
         </div>
+		
+		
+		
+		
+		<!-- Div 6 -->	
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -95,6 +131,10 @@ these locations for customers.
                 </div>
             </div>
         </div>
+		
+		
+		
+	<!-- Div 7 -->
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -108,6 +148,17 @@ All our vehicles are serviced every 5,000km to ensure the safety of our service 
                 </div>
             </div>
         </div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			<!-- Div 8 -->
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -120,6 +171,12 @@ All our vehicles are serviced every 5,000km to ensure the safety of our service 
                 </div>
             </div>
         </div>
+		
+		
+		
+		
+		
+<!-- Div 9 -->
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -132,6 +189,12 @@ All our vehicles are serviced every 5,000km to ensure the safety of our service 
                 </div>
             </div>
         </div>
+		
+		
+		
+		
+		
+ <!-- Div 10 -->	
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -144,11 +207,14 @@ All our vehicles are serviced every 5,000km to ensure the safety of our service 
                 </div>
             </div>
         </div>
+		
+		
+		
 
 		
 		
 		
-		
+	<!-- Div 11 -->		
         <div class="faqHeader">Service Specific Questions</div>
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -162,6 +228,14 @@ All our vehicles are serviced every 5,000km to ensure the safety of our service 
                 </div>
             </div>
         </div>
+		
+		
+		
+		
+		
+		
+		
+	<!-- Div 12 -->		
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -177,11 +251,20 @@ You are expected to get in touch with <strong>MetroSpecs</strong> By using the c
     </div>
 </div>
 
+
+
 <style>
+
+/* faqheader styling */
+
     .faqHeader {
         font-size: 27px;
         margin: 20px;
     }
+	
+	
+/* Panel header, structure, font,  */
+
 
     .panel-heading [data-toggle="collapse"]:after {
         font-family: 'Glyphicons Halflings';
@@ -190,8 +273,7 @@ You are expected to get in touch with <strong>MetroSpecs</strong> By using the c
         color: #F53823;
         font-size: 18px;
         line-height: 22px;
-        /* rotate "play" icon from > (right arrow) to down arrow */
-        -webkit-transform: rotate(-90deg);
+		-webkit-transform: rotate(-90deg);
         -moz-transform: rotate(-90deg);
         -ms-transform: rotate(-90deg);
         -o-transform: rotate(-90deg);
@@ -199,7 +281,6 @@ You are expected to get in touch with <strong>MetroSpecs</strong> By using the c
     }
 
     .panel-heading [data-toggle="collapse"].collapsed:after {
-        /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
         -webkit-transform: rotate(90deg);
         -moz-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
