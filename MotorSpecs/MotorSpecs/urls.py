@@ -35,6 +35,7 @@ urlpatterns = [
     path('stores/', WebApp.views.Stores, name='Stores'),
     path('legalresources/', WebApp.views.LegalResources, name='LegalResources'),
     path('faqs/', WebApp.views.faqs, name='faqs'),
+    path('contact/', WebApp.views.contact, name='contact'),
     url(r'^dashboard/results/$', WebApp.views.search_list, name='search'),
     url(r'^home/results/$', WebApp.views.CustomerSearch_list, name='customerSearch'),
     path('vehiclelist/', include('VehicleList.urls')),
