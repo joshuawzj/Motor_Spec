@@ -1,0 +1,216 @@
+{% extends "WebApp/base.html" %}
+
+{% block navbuttons %}
+        <li><a href="/home/">Home</a></li>
+        <li><a href="/stores/">Stores</a></li>
+        <li><a href="/vehiclelist/">View Cars</a></li>
+        <li><a href="/aboutus/">About Us</a></li>
+		<li class="active"><a href="/faqs/">FAQs</a></li>
+        <li><a href="/contact/">Contact</a></li>
+	{% if user.is_authenticated %}
+        <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
+      	{% endif %}
+{% endblock navbuttons %}
+
+
+
+
+{% block content %}
+
+  <img src="https://i.postimg.cc/6q2k0vLz/Logo.png" style="float:center; alt="MotorSpecs Logo" width="200" height="180">
+  
+
+<div class="container">
+ 
+
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        This page features a wealth of information relating to <strong>MotorSpecs</strong>, our ToS and vehicle hire conditions. If however, you are unable to find an answer to your query, kindly utilise the details on the contact page to reach the team. 
+    </div>
+
+    <br />
+
+    <div class="panel-group" id="accordion">
+        <div class="faqHeader">General questions</div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">What is MotorSpecs?</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <strong>MotorSpecs</strong> is a vehicle hire company with multiple car rental locations at Brisbane, Melbourne, Sydney, Adelaide, and the Gold Coast. <strong>MotorSpecs</strong> offers a wide range of cars, 4WDs and minibuses as well as Australia’s largest fleet of truck and commercial vehicles that are distributed in
+these locations for customers.
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">How covered am I as a customer?</a>
+                </h4>
+            </div>
+            <div id="collapseTen" class="panel-collapse collapse">
+                <div class="panel-body">
+                    Vehicles hired at any of our office locations are comprehensively insured, and our top-notch service provision aims to protect the right of our renters under the Australian Consumer Law (ACL).
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">How accessible are vehicles at your store locations?</a>
+                </h4>
+            </div>
+            <div id="collapseEleven" class="panel-collapse collapse">
+                <div class="panel-body">
+                    Our nation-wide offices feature a wide range of vehicles available for immediate hire. Customers are encouraged to utilise the "view store" section of the website to confirm the availability of vehicles at a specific location.
+                </div>
+            </div>
+        </div>
+
+        <div class="faqHeader">Vehicle Specific Questions </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">How recent are the model of vehicles at your locations?</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <strong>MotorSpecs</strong> have a strong policy around the vehicles we have advertised for hire. MotorSpecs ensure that vehicles older than five years are disposed of through auctions, this is to ensure that all old vehicles are not rented out to customers as we understand our duty of care around keeping our customers safe from hazardous circumstances.
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Do I need a specific licence to hire a truck?</a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                   Yes, since all our trucks fall under the Heavy Rigid (HR) machinery, you would be expected to have an HR manual licence to hire a truck at <strong>MotorSpecs</strong>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">How often are your rental vehicles serviced?</a>
+                </h4>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse">
+                <div class="panel-body">
+All our vehicles are serviced every 5,000km to ensure the safety of our service users. Again, <strong>MotorSpecs</strong> understand its duty of care around public safety.
+				
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">Can I request for a specific make/model?</a>
+                </h4>
+            </div>
+            <div id="collapseSix" class="panel-collapse collapse">
+                <div class="panel-body">
+                   Yes, you may reserve your preference of any of our fleet vehicles, and we’ll ensure to have that exact car waiting for you at the pick-up area. And once you're behind the wheel of your favourite rental car, if you decide to keep your vehicle for a few more days, that's no problem at all. 
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight">Does <strong>MotorSpecs</strong> have 4WDs? </a>
+                </h4>
+            </div>
+            <div id="collapseEight" class="panel-collapse collapse">
+                <div class="panel-body">
+                  We have an extensive fleet which includes mid-size to large SUVs, many of which offer 4WD. Kindly utilise the view cars column of our website to view the range of our vehicles including 4WDs, cars, coupe, and so on..
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">Do you offer hybrid vehicles?</a>
+                </h4>
+            </div>
+            <div id="collapseNine" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <strong>MotorSpecs</strong> offer low-emmission hybrid vehicles at our various ocations. Most of our vehicles, especially cars, are eco-friendly and get great fuel mileage.
+                </div>
+            </div>
+        </div>
+
+		
+		
+		
+		
+        <div class="faqHeader">Service Specific Questions</div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">What is the policy around utilising toll roads</a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse">
+                <div class="panel-body">
+                    We encourage you to contact the toll provider after travelling the toll road - within 72 hours (Melbourne, Brisbane) or 48hours (Sydney). If you refuse to take action, a toll bill may be forwarded to the address you provided to <strong>MetroSpecs</strong> during initial registration.
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">How do I modify or cancel my booking?</a>
+                </h4>
+            </div>
+            <div id="collapseSeven" class="panel-collapse collapse">
+                <div class="panel-body">
+You are expected to get in touch with <strong>MetroSpecs</strong> By using the contact information on the our contact page.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .faqHeader {
+        font-size: 27px;
+        margin: 20px;
+    }
+
+    .panel-heading [data-toggle="collapse"]:after {
+        font-family: 'Glyphicons Halflings';
+        content: '+';
+        float: right;
+        color: #F53823;
+        font-size: 18px;
+        line-height: 22px;
+        /* rotate "play" icon from > (right arrow) to down arrow */
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .panel-heading [data-toggle="collapse"].collapsed:after {
+        /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+        color: #454444;
+    }
+</style>
+
+
+
+
+
+{% endblock content %}

@@ -5,7 +5,8 @@
         <li><a href="/stores/">Stores</a></li>
         <li><a href="/vehiclelist/">View Cars</a></li>
         <li class="active"><a href="/aboutus/">About Us</a></li>
-		<li><a href="/legalresources/">Legal Resources</a></li>
+	<li><a href="/faqs/">FAQs</a></li>
+	<li><a href="/contact/">Contact</a></li>
 	{% if user.is_authenticated %}
         <li><a href="/dashboard/">Employee Dashboard</a></li> <!--show dashboard link for employees only-->
       	{% endif %}
@@ -14,9 +15,59 @@
 {% block content %}
 <img src="https://i.postimg.cc/6q2k0vLz/Logo.png" style="float:center; alt="MotorSpecs Logo" width="200" height="180">
 
-<p>Motorspecs is an Australia-wide car hire company that has been operating for over a decade. We have several branches across the country including in Brisbane, Melbourne, Sydney, Adelaide, Gold Coast furthermore, we have recently opened a branch in Auckland, New Zealand with the aim of spreading our wings across the Oceania region.
 
-<br><br>MotorSpecs prides itself on being the most reputable Car Hire company in the country, we are known for our competitive pick-up prices, customer satisfaction, and swift dispute resolution. 
+<table >
 
-<br><br>MotorSpecs offers a wide range of cars, 4WDs, Pickup trucks, minibuses as well as Australia’s highest fleet of truck and industrial vehicles that are distributed in these locations for customers' accessibility. We look forward to receiving your first booking!"
+<tr>
+<td>
+
+
+    <div id="about-us" class="clear">
+      <!-- ####################################################################################################### -->
+        <h2>About Us</h2>
+        <img src="https://i.postimg.cc/sDt6GfvD/hire.png" alt="MotorSpecs" Width="800" height="340"/>
+        <p>Motorspecs is an Australia-wide car hire company that has been operating for over a decade. We have several branches across the country including in Brisbane, Melbourne, Sydney, Adelaide, Gold Coast furthermore, we have recently opened a branch in Auckland, New Zealand with the aim of spreading our wings across the Oceania region.</p>
+        <p>MotorSpecs prides itself on being the most reputable Car Hire company in the country, we are known for our competitive pick-up prices, customer satisfaction, and swift dispute resolution. 
+
+MotorSpecs offers a wide range of cars, 4WDs, Pickup trucks, minibuses as well as Australia’s highest fleet of truck and industrial vehicles that are distributed in these locations for customers' accessibility. We look forward to receiving your first booking!"</p>
+
+      
+      </div>
+	  
+      <!-- ####################################################################################################### -->
+  
+</td>
+</tr>
+</table>
+
+
+
+
+
+<style>
+
+#about-us{display:block; width:100%; line-height:1.6em;}
+#about-us h2{margin-bottom:50px; padding-bottom:40px; font-size:80px; text-align:center;  border-bottom:1px solid #CCCCCC;}
+
+
+table {
+     style="float:center;
+	 border-style: inset;
+}
+
+tr { 
+   
+}	
+
+
+td { 
+
+text-align: center;
+	
+}
+</style>
+
+
+
+
 {% endblock content %}
