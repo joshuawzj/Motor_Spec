@@ -36,6 +36,10 @@ def faqs(request):
     assert isinstance(request, HttpRequest)
     return render(request, 'WebApp/faqs.html')
 
+def contact(request):
+    assert isinstance(request, HttpRequest)
+    return render(request, 'WebApp/contact.html')
+
 def Stores(request):
     storeList = StoreDetail.objects.all
 
